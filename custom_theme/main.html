@@ -24,4 +24,72 @@
 	}
 })();
 </script>
+<style>
+/* Small styling for the repo last-push indicator in the header */
+.md-source__meta {
+	display: block;
+	font-size: .75rem;
+	color: var(--md-default-fg-color--light, #6b7280);
+	margin-top: .125rem;
+}
+</style>
+<script>
+// Insert a "Last Push: X ago" indicator under the repository link in the
+// header. Uses the GitHub commits API (unauthenticated rate limit applies).
+(function(){
+	async function getLatestCommitDate(owner, repo){
+		const url = `https://api.github.com/repos/${owner}/${repo}/commits?per_page=1`;
+		try{
+			const res = await fetch(url);
+			if(!res.ok) throw new Error('Fetch failed');
+			const data = await res.json();
+			if(!Array.isArray(data) || !data[0]) return null;
+			return data[0].commit && (data[0].commit.committer || data[0].commit.author) && (data[0].commit.committer ? data[0].commit.committer.date : data[0].commit.author.date) || null;
+		}catch(e){
+			return null;
+		}
+	}
+
+	function timeAgo(iso){
+		if(!iso) return 'unknown';
+		const then = new Date(iso).getTime();
+		const now = Date.now();
+		const s = Math.floor((now-then)/1000);
+		if(s < 60) return `${s}s ago`;
+		const m = Math.floor(s/60);
+		if(m < 60) return `${m}m ago`;
+		const h = Math.floor(m/60);
+		if(h < 24) return `${h}h ago`;
+		const d = Math.floor(h/24);
+		return `${d}d ago`;
+	}
+
+	document.addEventListener('DOMContentLoaded', async function(){
+		try{
+			const link = document.querySelector('.md-source');
+			if(!link) return;
+			const repoHref = link.getAttribute('href');
+			if(!repoHref) return;
+			// parse owner/repo from href like https://github.com/owner/repo
+			const parts = repoHref.replace(/\/$/, '').split('/');
+			const owner = parts[parts.length-2];
+			const repo = parts[parts.length-1];
+
+			// create element now with loading text
+			const repoMeta = document.createElement('div');
+			repoMeta.className = 'md-source__meta';
+			repoMeta.textContent = 'Last Push: loading...';
+			const repoText = document.querySelector('.md-source__repository');
+			if(repoText) repoText.appendChild(repoMeta);
+
+			const dateIso = await getLatestCommitDate(owner, repo);
+			if(!dateIso){ repoMeta.textContent = 'Last Push: unavailable'; return; }
+			repoMeta.textContent = `Last Push: ${timeAgo(dateIso)}`;
+
+			// update periodically every 60s to keep label fresh in long sessions
+			setInterval(()=>{ repoMeta.textContent = `Last Push: ${timeAgo(dateIso)}`; }, 60000);
+		}catch(e){ /* silent */ }
+	});
+})();
+</script>
 {% endblock %}
