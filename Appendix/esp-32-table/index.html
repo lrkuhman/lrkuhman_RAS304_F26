@@ -61,7 +61,20 @@
 
     
     
-
+<script>
+// Remove stale MkDocs Material palette entry that can hide the theme toggle
+// (stored under keys containing "__palette"). This runs early in the page
+// head so the theme logic starts from a clean state.
+(function(){
+	try{
+		Object.keys(localStorage)
+			.filter(k => k.includes('__palette'))
+			.forEach(k => localStorage.removeItem(k));
+	}catch(e){
+		/* ignore storage errors */
+	}
+})();
+</script>
 
   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
