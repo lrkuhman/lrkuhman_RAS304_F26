@@ -15,6 +15,9 @@ theme:
     - scheme: default
       primary: blue
       accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
   font:
     text: Roboto
   logo: static/logo304.svg
