@@ -10,5 +10,18 @@
 {% endblock %}
 
 {% block extrahead %}
-
+<script>
+// Remove stale MkDocs Material palette entry that can hide the theme toggle
+// (stored under keys containing "__palette"). This runs early in the page
+// head so the theme logic starts from a clean state.
+(function(){
+	try{
+		Object.keys(localStorage)
+			.filter(k => k.includes('__palette'))
+			.forEach(k => localStorage.removeItem(k));
+	}catch(e){
+		/* ignore storage errors */
+	}
+})();
+</script>
 {% endblock %}
