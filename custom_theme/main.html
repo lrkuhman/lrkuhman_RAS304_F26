@@ -66,14 +66,9 @@
 
 	document.addEventListener('DOMContentLoaded', async function(){
 		try{
-			const link = document.querySelector('.md-source');
-			if(!link) return;
-			const repoHref = link.getAttribute('href');
-			if(!repoHref) return;
-			// parse owner/repo from href like https://github.com/owner/repo
-			const parts = repoHref.replace(/\/$/, '').split('/');
-			const owner = parts[parts.length-2];
-			const repo = parts[parts.length-1];
+			// Use the specific GitHub repo provided by the user
+			const owner = 'lrkuhman';
+			const repo = 'lrkuhman_RAS304_F26';
 
 			// create element now with loading text
 			const repoMeta = document.createElement('div');
@@ -86,8 +81,11 @@
 			if(!dateIso){ repoMeta.textContent = 'Last Push: unavailable'; return; }
 			repoMeta.textContent = `Last Push: ${timeAgo(dateIso)}`;
 
-			// update periodically every 60s to keep label fresh in long sessions
-			setInterval(()=>{ repoMeta.textContent = `Last Push: ${timeAgo(dateIso)}`; }, 60000);
+			// refresh every 60s in case of new pushes
+			setInterval(async ()=>{
+				const latest = await getLatestCommitDate(owner, repo);
+				repoMeta.textContent = latest ? `Last Push: ${timeAgo(latest)}` : 'Last Push: unavailable';
+			}, 60000);
 		}catch(e){ /* silent */ }
 	});
 })();
