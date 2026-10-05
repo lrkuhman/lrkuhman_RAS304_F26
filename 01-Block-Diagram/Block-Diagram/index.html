@@ -1107,13 +1107,12 @@
 <h2 id="overview">Overview</h2>
 <p>This block diagram outlines the architecture of the LiDAR subsystem, illustrating the flow of data and power between the sensor, microcontroller, and the broader team system.</p>
 <ul>
-<li><strong>Power levels:</strong> The system utilizes a 5V power supply and a common ground (G), which are connected between the LiDAR Daughter Board and the Microchip PIC18F57Q43 Curiosity Nano[cite: 1].</li>
-<li><strong>Sensor:</strong> A Time-of-Flight (ToF) LiDAR sensor is utilized to gather spatial data, which feeds directly into the LiDAR Daughter Board[cite: 1].</li>
-<li><strong>Actuator:</strong> There are no actuators present within this specific subsystem[cite: 1].</li>
-<li><strong>Team connections:</strong> Integration with the main system is handled via Connector 1[cite: 1]. The microcontroller communicates with the team system using its RX2 and TX2 pins, which are routed to pins 1 and 2 on the connector[cite: 1].</li>
-<li><strong>Power source:</strong> The 5V power and Ground (G) are routed between the LiDAR Daughter Board and the Microchip PIC18F57Q43 Curiosity Nano[cite: 1]. </li>
+<li><strong>Power levels:</strong> The system utilizes a 5V stepdown power supply and a common ground (G), which are connected between the LiDAR Daughter Board and the Microchip PIC18F57Q43 Curiosity Nano.</li>
+<li><strong>Sensor:</strong> A Time-of-Flight (ToF) LiDAR sensor is utilized to gather spatial data, which feeds directly into the LiDAR Daughter Board.</li>
+<li><strong>Actuator:</strong> There are no actuators present within this specific subsystem.</li>
+<li><strong>Team connections:</strong> Integration with the main system is handled via Connector 1. The microcontroller communicates with the team system using its RX2 and TX2 pins, which are routed to pins 1 and 2 on the connector.</li>
+<li><strong>Power source:</strong> The 5V power and Ground (G) are routed between the LiDAR Daughter Board and the Microchip PIC18F57Q43 Curiosity Nano. </li>
 </ul>
-<p>To get some initial formatting help, one can view <a href="https://embedded-systems-design.github.io/EGR304DataSheetTemplate/Appendix/basic-markdown-examples/">"here"</a> some basic techniques.</p>
 <h2 id="individual-block-diagram">Individual Block Diagram</h2>
 <p>Below is the block diagram representing the LiDAR subsystem architecture.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../individual-block-diagram.png" data-desc-position="bottom"><img alt="Example of Indivial Block diagram " src="../individual-block-diagram.png"></a></p>
