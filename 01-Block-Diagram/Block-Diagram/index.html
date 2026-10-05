@@ -29,7 +29,7 @@
 
     
       
-        <title>Individal Block Diagram - RAS 304 Landon Kuhman Data Sheet</title>
+        <title>Individual Block Diagram - RAS 304 Landon Kuhman Data Sheet</title>
       
     
     
@@ -208,7 +208,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Individal Block Diagram
+              Individual Block Diagram
             
           </span>
         </div>
@@ -619,7 +619,7 @@
   <span class="md-ellipsis">
     
   
-    Individal Block Diagram
+    Individual Block Diagram
   
 
     
@@ -637,7 +637,7 @@
   <span class="md-ellipsis">
     
   
-    Individal Block Diagram
+    Individual Block Diagram
   
 
     
@@ -672,10 +672,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-block-diagram" class="md-nav__link">
+  <a href="#individual-block-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Block Diagram
+        Individual Block Diagram
       
     </span>
   </a>
@@ -1019,10 +1019,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-block-diagram" class="md-nav__link">
+  <a href="#individual-block-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Block Diagram
+        Individual Block Diagram
       
     </span>
   </a>
@@ -1102,20 +1102,20 @@
   
 
 
-  <h1>Individal Block Diagram</h1>
+  <h1>Individual Block Diagram</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This needs to be updated with a brief purpose for having the block diagram.
-Things to mention are:
-* power levels
-* sensor
-* Actuator
-* team connections
-* Power source
-* ...</p>
+<p>This block diagram outlines the architecture of the LiDAR subsystem, illustrating the flow of data and power between the sensor, microcontroller, and the broader team system.</p>
+<ul>
+<li><strong>Power levels:</strong> The system utilizes a 5V power supply and a common ground (G), which are connected between the LiDAR Daughter Board and the Microchip PIC18F57Q43 Curiosity Nano[cite: 1].</li>
+<li><strong>Sensor:</strong> A Time-of-Flight (ToF) LiDAR sensor is utilized to gather spatial data, which feeds directly into the LiDAR Daughter Board[cite: 1].</li>
+<li><strong>Actuator:</strong> There are no actuators present within this specific subsystem[cite: 1].</li>
+<li><strong>Team connections:</strong> Integration with the main system is handled via Connector 1[cite: 1]. The microcontroller communicates with the team system using its RX2 and TX2 pins, which are routed to pins 1 and 2 on the connector[cite: 1].</li>
+<li><strong>Power source:</strong> The 5V power and Ground (G) are routed between the LiDAR Daughter Board and the Microchip PIC18F57Q43 Curiosity Nano[cite: 1]. </li>
+</ul>
 <p>To get some initial formatting help, one can view <a href="https://embedded-systems-design.github.io/EGR304DataSheetTemplate/Appendix/basic-markdown-examples/">"here"</a> some basic techniques.</p>
-<h2 id="example-block-diagram">Example Block Diagram</h2>
-<p>Showing an example of how to import a screenshot of the block diagram created outside of git and brought into a page.</p>
+<h2 id="individual-block-diagram">Individual Block Diagram</h2>
+<p>Below is the block diagram representing the LiDAR subsystem architecture.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../individual-block-diagram.png" data-desc-position="bottom"><img alt="Example of Indivial Block diagram " src="../individual-block-diagram.png"></a></p>
 
 
