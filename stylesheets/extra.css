@@ -10,3 +10,25 @@ blockquote{
         color: var(--md-typeset-color);
     }
 }
+/* Tables: fill the content width and wrap text instead of scrolling sideways */
+.md-typeset__table {
+    display: block;
+    width: 100%;
+}
+.md-typeset__table table:not([class]) {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+    overflow-wrap: anywhere;
+}
+/* Component comparison tables (Solution | Pros | Cons): narrower Solution column */
+.md-typeset table:not([class]) th:first-child:nth-last-child(3) {
+    width: 30%;
+}
+.md-typeset table:not([class]) img {
+    max-width: 100%;
+    height: auto;
+}
