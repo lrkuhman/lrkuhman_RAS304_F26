@@ -1,34 +1,32 @@
 ---
 title: Welcome
-tags:
-- tag1
-- tag2
 ---
 <center>
-<font size= "6">Landon Datasheet</font><br>
+<font size= "6">Landon Kuhman Datasheet</font><br>
 as part of<br>
-<font size= "8"> Project Name</font><br>
+<font size= "8"> OpenField</font><br>
 for<br>
-<font size= "5"> Team ### </font><br>
+<font size= "5"> Team 1 (Group 101) </font><br>
 
-**Submission: month, DD, YYYY**
+**Submission: October 19, 2026**
 </center>
 
 ## Introduction
 
-* This needs to be updated so that a reader gets an idea of the purpose of this datasheet.
+This datasheet documents my individual subsystem, the **LiDAR subsystem**, for OpenField, our RAS 304 team project. It collects the block diagram, component selections, power budget and (later) the schematic and BOM for the LiDAR daughter board.
 
 ### Project Summary
 
-* This needs to be updated to reflect <ins>your version</ins> of the team project, so when shared not via the team's report, the reader gets an idea of the direction of the project and how your work will contribute to the overall success.
-* Add context that ties into the link to your [team report.](https://embedded-systems-design.github.io/EGR304TeamTemplate/)
-
+OpenField is an open-source robot that sprays field lines, construction floor plans and temporary road markings using ordinary inverted spray-paint cans. It is built from commonly available parts with open firmware and hardware, as an affordable alternative to closed systems such as Dusty Robotics and HP SitePrint. The full team design is in our [team report](https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/).
 
 ### My Contribution
 
-* This needs to be updated to reflect a team introduction
-* Content should also help an unfamiliar reader navigate to areas of interest. Information like:
+I am responsible for the LiDAR subsystem: a daughter board with its own PIC18F57Q43 Curiosity Nano that reads a 360° time-of-flight LiDAR, reduces each scan to the obstacle and landmark data the robot needs to navigate, and sends it to the MASTER board over UART.
 
-To review the details listed of the material used to construct the subsection, you can review it in the ["BOM"](https://embedded-systems-design.github.io/EGR304DataSheetTemplate/03-BOM/BOM/) section of the datasheet.
+### Datasheet Pages
 
-For all the sections
+* [Individual Block Diagram](01-Block-Diagram/Block-Diagram.md)
+* [Component Selection](02-Component-Selection/Component-Selection.md): LiDAR sensor, +5 V regulator and power source comparisons, final selections and pin table
+* [Power Budget](05-Power-Budget/Power-Budget.md): +5 V rail current, regulator headroom and battery life for the LiDAR board
+* [BOM](03-BOM/BOM.md)
+* [Schematic](04-Schematic/schematic.md)
