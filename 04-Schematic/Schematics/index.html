@@ -1187,8 +1187,8 @@
 <tbody>
 <tr>
 <td><strong>Power input, protection &amp; 5 V regulation</strong></td>
-<td>Accepts 9–12 V DC from a barrel jack, through a removable 750 mA slow-blow fuse in an enclosed BLX-A holder. The fuse is sized for a 420 mA input load plus the LiDAR motor's start-up current. The 5 V rail is made by a through-hole linear LDO with the input and output capacitors its datasheet requires. A green LED shows the board is powered. As an option, the board can instead be powered from the team ribbon (pin 7) through a jumper and a Schottky diode.</td>
-<td>J1 PJ-063AH, F1 750 mA T in a BLX-A enclosed 5×20 mm holder, U2 LM2940CT-5.0 (TO-220, with heatsink), C1 100 µF/25 V, C2 0.47 µF/50 V, C3 22 µF/16 V, C4 0.1 µF, D1, JP6 + D5</td>
+<td>Accepts the board's own 9 V DC adapter (9–12 V tolerated) through a barrel jack, through a removable 750 mA slow-blow fuse in an enclosed BLX-A holder. The fuse is sized for a 420 mA input load plus the LiDAR motor's start-up current. The 5 V rail is made by a through-hole linear LDO with the input and output capacitors its datasheet requires. A green LED shows the board is powered. Per the course project description, each board makes its own 5 V; only ground is shared over the ribbon.</td>
+<td>J1 PJ-063AH, F1 750 mA T in a BLX-A enclosed 5×20 mm holder, U2 LM2940CT-5.0 (TO-220, with heatsink), C1 100 µF/25 V, C2 0.47 µF/50 V, C3 22 µF/16 V, C4 0.1 µF, D1</td>
 </tr>
 <tr>
 <td><strong>Microcontroller</strong></td>
@@ -1202,7 +1202,7 @@
 </tr>
 <tr>
 <td><strong>Team bus (ribbon cable)</strong></td>
-<td>2×4 IDC header to the MASTER board. Pin 1 is UART in (to RB1, the PIC's UART2 RX). Pin 2 is UART out (from RB0, UART2 TX). Pin 7 is optional bus power, pin 8 is GND, and pins 3–6 are reserved. Jumpers isolate both UART lines for debugging, and a 10 k pull-up keeps RX idle-high when the ribbon is unplugged.</td>
+<td>2×4 IDC header to the MASTER board. Pin 1 is UART in (to RB1, the PIC's UART2 RX). Pin 2 is UART out (from RB0, UART2 TX). Pin 8 is GND. Pins 3–5 (digital) and 6–7 (analog) follow the course's team pinout and are unused on this board. Jumpers isolate both UART lines for debugging, and a 10 k pull-up keeps RX idle-high when the ribbon is unplugged.</td>
 <td>J3, JP4, JP5, R4, TP7, TP8</td>
 </tr>
 <tr>
