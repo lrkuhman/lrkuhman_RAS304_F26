@@ -9,7 +9,7 @@
       
       
       
-        <link rel="canonical" href="https://ras-embedded-systems.github.io/RAS304DataSheetTemplate/04-Schematic/schematic/">
+        <link rel="canonical" href="https://ras-embedded-systems.github.io/RAS304DataSheetTemplate/04-Schematic/Schematics/">
       
       
         <link rel="prev" href="../../03-BOM/BOM/">
@@ -29,7 +29,7 @@
 
     
       
-        <title>Schematic - RAS 304 Landon Kuhman Data Sheet</title>
+        <title>Schematics - RAS 304 Landon Kuhman Data Sheet</title>
       
     
     
@@ -208,7 +208,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Schematic
+              Schematics
             
           </span>
         </div>
@@ -784,7 +784,7 @@
   <span class="md-ellipsis">
     
   
-    Schematic
+    Schematics
   
 
     
@@ -802,7 +802,7 @@
   <span class="md-ellipsis">
     
   
-    Schematic
+    Schematics
   
 
     
@@ -837,10 +837,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#schematic-sections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resouces
+        Schematic Sections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller-pin-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microcontroller Pin Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
       
     </span>
   </a>
@@ -1019,10 +1052,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#schematic-sections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resouces
+        Schematic Sections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller-pin-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microcontroller Pin Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
       
     </span>
   </a>
@@ -1094,7 +1160,7 @@
 
 
   
-    <a href="https://github.com/ras-embedded-systems/RAS304DataSheetTemplate/edit/main/docs/04-Schematic/schematic.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/ras-embedded-systems/RAS304DataSheetTemplate/edit/main/docs/04-Schematic/Schematics.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -1102,14 +1168,128 @@
   
 
 
-  <h1>Schematic</h1>
+  <h1>Schematics</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This schematic is design to support .... (highlight functionally, power, and controller).</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Screenshot.png" data-desc-position="bottom"><img alt="schematic" height:_300_="height:&quot;300;&quot;" src="../Screenshot.png" style="style" width:_350_="width:&quot;350&quot;"></a>
-<strong>Figure ##:</strong> Showing a example schematic.</p>
-<h2 id="resouces">Resouces</h2>
-<p>The schematic as a PDF download is available <a href="../ExampleSchematic.pdf"><em>here</em></a>, and the Zip folder of the project <a href="../dummyZip.zip"><em>here</em></a>.</p>
+<p>This schematic is for my <strong>LiDAR subsystem</strong> board in OpenField (Team 1). The board uses a PIC18F57Q43 Curiosity Nano to read a Waveshare D500 360° time-of-flight LiDAR on UART1 at 230400 baud. It processes the scan and sends the results to the team's MASTER board over UART2, through the 8-pin team ribbon cable shown in the <a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/06-team-block-diagram/">team block diagram</a>.</p>
+<p>The parts match my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> and <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a> pages: a D500 LiDAR, an LM2940CT-5.0 linear regulator, and a 487.5 mA load on the +5 V rail.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../LiDAR_Subsystem_LK_Schematic.png" data-desc-position="bottom"><img alt="LiDAR subsystem schematic" src="../LiDAR_Subsystem_LK_Schematic.png"></a>
+<strong>Figure 1:</strong> LiDAR subsystem schematic, drawn in KiCad. Click the image to enlarge it.</p>
+<h2 id="schematic-sections">Schematic Sections</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>What it does</th>
+<th>Key parts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Power input, protection &amp; 5 V regulation</strong></td>
+<td>Accepts 9–12 V DC from a barrel jack, through a removable 750 mA slow-blow fuse. The fuse is sized for a 420 mA input load plus the LiDAR motor's start-up current. The 5 V rail is made by a through-hole linear LDO with the input and output capacitors its datasheet requires. A green LED shows the board is powered. As an option, the board can instead be powered from the team ribbon (pin 7) through a jumper and a Schottky diode.</td>
+<td>J1 PJ-063AH, F1 750 mA T in 5×20 mm clips, U2 LM2940CT-5.0 (TO-220, with heatsink), C1 100 µF/25 V, C2 0.47 µF/50 V, C3 22 µF/16 V, C4 0.1 µF, D1, JP6 + D5</td>
+</tr>
+<tr>
+<td><strong>Microcontroller</strong></td>
+<td>PIC18F57Q43 Curiosity Nano, drawn with my custom symbol (LK). The 5 V rail feeds the Nano's VBUS pin through a Schottky diode and a jumper, so a USB cable plugged into the Nano can't back-feed the board, and the board can't back-feed the USB port. VBUS and VTG each have a 0.1 µF bypass capacitor. Unused pins are marked no-connect.</td>
+<td>U1, D2 SS14, JP1, C5, C6</td>
+</tr>
+<tr>
+<td><strong>LiDAR interface</strong></td>
+<td>4-pin <strong>JST PH 2.0 mm</strong> through-hole header for the D500 (5 V, TX, PWM, GND). The LiDAR has its own power jumper and local capacitors (10 µF + 0.1 µF). Its TX line goes through a jumper to the PIC's UART1 RX. The PWM input is held low by a 10 k pull-down so the D500 uses its internal 10 Hz speed control, and the PIC can drive it through a 100 Ω resistor if needed.</td>
+<td>J2 (custom D500 symbol, LK), JP2, JP3, C7, C8, R2, R3, TP5, TP6</td>
+</tr>
+<tr>
+<td><strong>Team bus (ribbon cable)</strong></td>
+<td>2×4 IDC header to the MASTER board. Pin 1 is UART in (to RB1, the PIC's UART2 RX). Pin 2 is UART out (from RB0, UART2 TX). Pin 7 is optional bus power, pin 8 is GND, and pins 3–6 are reserved. Jumpers isolate both UART lines for debugging, and a 10 k pull-up keeps RX idle-high when the ribbon is unplugged.</td>
+<td>J3, JP4, JP5, R4, TP7, TP8</td>
+</tr>
+<tr>
+<td><strong>Debug LEDs &amp; pushbutton</strong></td>
+<td>Red debug LED (RD0) and green "LiDAR OK" status LED (RD1), each with a 330 Ω current-limiting resistor (about 4 mA). One pushbutton on RA4 with a 10 k pull-up and an RC hardware debounce (1 k + 1 µF, about 11 ms).</td>
+<td>D3, D4, R5, R6, SW1, R7, R8, C9</td>
+</tr>
+<tr>
+<td><strong>Expansion headers &amp; test points</strong></td>
+<td>Two 10-pin headers bring 16 spare GPIO pins (including ADC, I²C and SPI-capable pins) plus 3.3 V and GND out for future changes. Eight test points cover VIN, +5V, +3V3, GND, LIDAR_TX, LIDAR_PWM, UART_RX and UART_TX.</td>
+<td>J4, J5, TP1–TP8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="microcontroller-pin-map">Microcontroller Pin Map</h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>PIC18F57Q43 pin</th>
+<th>Peripheral</th>
+<th>Connects to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LIDAR_RX</td>
+<td>RC7</td>
+<td>UART1 RX (PPS)</td>
+<td>D500 TX (through JP3)</td>
+</tr>
+<tr>
+<td>LIDAR_PWM</td>
+<td>RC6</td>
+<td>PWM (PPS), optional</td>
+<td>D500 PWM (through R2)</td>
+</tr>
+<tr>
+<td>UART_RX</td>
+<td>RB1</td>
+<td>UART2 RX (PPS)</td>
+<td>Ribbon pin 1, from the MASTER board's TX</td>
+</tr>
+<tr>
+<td>UART_TX</td>
+<td>RB0</td>
+<td>UART2 TX (PPS)</td>
+<td>Ribbon pin 2, to the MASTER board's RX</td>
+</tr>
+<tr>
+<td>LED_DBG</td>
+<td>RD0</td>
+<td>GPIO output</td>
+<td>Red debug LED</td>
+</tr>
+<tr>
+<td>LED_STAT</td>
+<td>RD1</td>
+<td>GPIO output</td>
+<td>Green "LiDAR OK" LED</td>
+</tr>
+<tr>
+<td>BTN</td>
+<td>RA4</td>
+<td>GPIO input (Schmitt trigger)</td>
+<td>SW1, active-low</td>
+</tr>
+<tr>
+<td>Spare</td>
+<td>RA0–RA3, RA5, RC2–RC4, RD2–RD7, RE0–RE1</td>
+<td>GPIO / ADC / I²C / SPI</td>
+<td>Headers J4 and J5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-notes">Design Notes</h2>
+<ul>
+<li><strong>Custom symbols (initials LK):</strong> the Curiosity Nano (U1), the D500 LiDAR connector (J2) and the voltage regulator (U2) are custom symbols in <code>LK_CustomParts.kicad_sym</code>. The Nano symbol groups its pins by port and puts the power pins on the top and bottom edges, which keeps the wiring clean.</li>
+<li><strong>Ratings:</strong> every resistor is 0805, 1/8 W, with at least 50% power margin (the worst case is 8 mW). Every capacitor's voltage rating is at least 25% above the rail it sits on: 25 V or 50 V on the 9–12 V rail, and 16 V or 50 V on the 5 V and 3.3 V rails.</li>
+<li><strong>Logic levels:</strong> the D500's UART runs at 3.3 V and the Nano's VTG is 3.3 V, so the LiDAR connects directly to the PIC with no level shifter.</li>
+<li><strong>Analog sensor / actuator requirement:</strong> per the instructor, this requirement applies to the whole system. It is met by the wheel subsystem (motor drivers and encoders) and the cliff-sensor subsystem, so the LiDAR board doesn't need its own.</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>The schematic as a high-resolution PDF is available <a href="../LiDAR_Subsystem_LK_Schematic.pdf"><em>here</em></a>.</li>
+<li>A ZIP of the full KiCad project, including the custom symbol and footprint libraries, is available <a href="../LiDAR_Subsystem_LK.zip"><em>here</em></a>.</li>
+</ul>
 
 
 
