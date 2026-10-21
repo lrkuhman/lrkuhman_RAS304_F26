@@ -1,0 +1,48 @@
+---
+title: Schematics
+---
+
+## Overview
+
+This schematic is for my **LiDAR subsystem** board in OpenField (Team 1). The board uses a PIC18F57Q43 Curiosity Nano to read a Waveshare D500 360° time-of-flight LiDAR on UART1 at 230400 baud. It processes the scan and sends the results to the team's MASTER board over UART2, through the 8-pin team ribbon cable shown in the [team block diagram](https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/06-team-block-diagram/).
+
+The parts match my [Component Selection](../02-Component-Selection/Component-Selection.md) and [Power Budget](../05-Power-Budget/Power-Budget.md) pages: a D500 LiDAR, an LM2940CT-5.0 linear regulator, and a 487.5 mA load on the +5 V rail.
+
+![LiDAR subsystem schematic](LiDAR_Subsystem_LK_Schematic.png)
+**Figure 1:** LiDAR subsystem schematic, drawn in KiCad. Click the image to enlarge it.
+
+## Schematic Sections
+
+| Section | What it does | Key parts |
+| --- | --- | --- |
+| **Power input, protection & 5 V regulation** | Accepts 9–12 V DC from a barrel jack, through a removable 750 mA slow-blow fuse. The fuse is sized for a 420 mA input load plus the LiDAR motor's start-up current. The 5 V rail is made by a through-hole linear LDO with the input and output capacitors its datasheet requires. A green LED shows the board is powered. As an option, the board can instead be powered from the team ribbon (pin 7) through a jumper and a Schottky diode. | J1 PJ-063AH, F1 750 mA T in 5×20 mm clips, U2 LM2940CT-5.0 (TO-220, with heatsink), C1 100 µF/25 V, C2 0.47 µF/50 V, C3 22 µF/16 V, C4 0.1 µF, D1, JP6 + D5 |
+| **Microcontroller** | PIC18F57Q43 Curiosity Nano, drawn with my custom symbol (LK). The 5 V rail feeds the Nano's VBUS pin through a Schottky diode and a jumper, so a USB cable plugged into the Nano can't back-feed the board, and the board can't back-feed the USB port. VBUS and VTG each have a 0.1 µF bypass capacitor. Unused pins are marked no-connect. | U1, D2 SS14, JP1, C5, C6 |
+| **LiDAR interface** | 4-pin **JST PH 2.0 mm** through-hole header for the D500 (5 V, TX, PWM, GND). The LiDAR has its own power jumper and local capacitors (10 µF + 0.1 µF). Its TX line goes through a jumper to the PIC's UART1 RX. The PWM input is held low by a 10 k pull-down so the D500 uses its internal 10 Hz speed control, and the PIC can drive it through a 100 Ω resistor if needed. | J2 (custom D500 symbol, LK), JP2, JP3, C7, C8, R2, R3, TP5, TP6 |
+| **Team bus (ribbon cable)** | 2×4 IDC header to the MASTER board. Pin 1 is UART in (to RB1, the PIC's UART2 RX). Pin 2 is UART out (from RB0, UART2 TX). Pin 7 is optional bus power, pin 8 is GND, and pins 3–6 are reserved. Jumpers isolate both UART lines for debugging, and a 10 k pull-up keeps RX idle-high when the ribbon is unplugged. | J3, JP4, JP5, R4, TP7, TP8 |
+| **Debug LEDs & pushbutton** | Red debug LED (RD0) and green "LiDAR OK" status LED (RD1), each with a 330 Ω current-limiting resistor (about 4 mA). One pushbutton on RA4 with a 10 k pull-up and an RC hardware debounce (1 k + 1 µF, about 11 ms). | D3, D4, R5, R6, SW1, R7, R8, C9 |
+| **Expansion headers & test points** | Two 10-pin headers bring 16 spare GPIO pins (including ADC, I²C and SPI-capable pins) plus 3.3 V and GND out for future changes. Eight test points cover VIN, +5V, +3V3, GND, LIDAR_TX, LIDAR_PWM, UART_RX and UART_TX. | J4, J5, TP1–TP8 |
+
+## Microcontroller Pin Map
+
+| Signal | PIC18F57Q43 pin | Peripheral | Connects to |
+| --- | --- | --- | --- |
+| LIDAR_RX | RC7 | UART1 RX (PPS) | D500 TX (through JP3) |
+| LIDAR_PWM | RC6 | PWM (PPS), optional | D500 PWM (through R2) |
+| UART_RX | RB1 | UART2 RX (PPS) | Ribbon pin 1, from the MASTER board's TX |
+| UART_TX | RB0 | UART2 TX (PPS) | Ribbon pin 2, to the MASTER board's RX |
+| LED_DBG | RD0 | GPIO output | Red debug LED |
+| LED_STAT | RD1 | GPIO output | Green "LiDAR OK" LED |
+| BTN | RA4 | GPIO input (Schmitt trigger) | SW1, active-low |
+| Spare | RA0–RA3, RA5, RC2–RC4, RD2–RD7, RE0–RE1 | GPIO / ADC / I²C / SPI | Headers J4 and J5 |
+
+## Design Notes
+
+* **Custom symbols (initials LK):** the Curiosity Nano (U1), the D500 LiDAR connector (J2) and the voltage regulator (U2) are custom symbols in `LK_CustomParts.kicad_sym`. The Nano symbol groups its pins by port and puts the power pins on the top and bottom edges, which keeps the wiring clean.
+* **Ratings:** every resistor is 0805, 1/8 W, with at least 50% power margin (the worst case is 8 mW). Every capacitor's voltage rating is at least 25% above the rail it sits on: 25 V or 50 V on the 9–12 V rail, and 16 V or 50 V on the 5 V and 3.3 V rails.
+* **Logic levels:** the D500's UART runs at 3.3 V and the Nano's VTG is 3.3 V, so the LiDAR connects directly to the PIC with no level shifter.
+* **Analog sensor / actuator requirement:** per the instructor, this requirement applies to the whole system. It is met by the wheel subsystem (motor drivers and encoders) and the cliff-sensor subsystem, so the LiDAR board doesn't need its own.
+
+## Resources
+
+* The schematic as a high-resolution PDF is available [*here*](LiDAR_Subsystem_LK_Schematic.pdf).
+* A ZIP of the full KiCad project, including the custom symbol and footprint libraries, is available [*here*](LiDAR_Subsystem_LK.zip).
