@@ -1197,8 +1197,8 @@
 </tr>
 <tr>
 <td><strong>LiDAR interface</strong></td>
-<td>4-pin <strong>JST PH 2.0 mm</strong> through-hole header for the D500 (5 V, TX, PWM, GND). The LiDAR has its own power jumper and local capacitors (10 µF + 0.1 µF). Its TX line goes through a jumper to the PIC's UART1 RX. The PWM input is held low by a 10 k pull-down so the D500 uses its internal 10 Hz speed control, and the PIC can drive it through a 100 Ω resistor if needed.</td>
-<td>J2 (custom D500 symbol, LK), JP2, JP3, C7, C8, R2, R3, TP5, TP6</td>
+<td>4-pin <strong>JST PH 2.0 mm</strong> through-hole header for the D500 (5 V, TX, PWM, GND). The LiDAR has its own power jumper and local capacitors (10 µF + 0.1 µF). Its TX line goes through a jumper to the PIC's UART1 RX. The PWM input is left floating (RC6 stays a high-impedance input) so the D500 uses its internal 10 Hz speed control, as the Waveshare D500 wiki specifies; the PIC can drive it through a 100 Ω resistor if needed. R3, a 10 k pull-down, is marked do-not-fit and is only for LD19-family sensors that need PWM grounded.</td>
+<td>J2 (custom D500 symbol, LK), JP2, JP3, C7, C8, R2, R3 (DNP), TP5, TP6</td>
 </tr>
 <tr>
 <td><strong>Team bus (ribbon cable)</strong></td>
