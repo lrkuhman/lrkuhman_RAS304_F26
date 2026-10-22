@@ -870,6 +870,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#breadboard-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breadboard Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1085,6 +1096,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#breadboard-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breadboard Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1285,6 +1307,52 @@
 <li><strong>Logic levels:</strong> the D500's UART runs at 3.3 V and the Nano's VTG is 3.3 V, so the LiDAR connects directly to the PIC with no level shifter.</li>
 <li><strong>Analog sensor / actuator requirement:</strong> per the instructor, this requirement applies to the whole system. It is met by the wheel subsystem (motor drivers and encoders) and the cliff-sensor subsystem, so the LiDAR board doesn't need its own.</li>
 </ul>
+<h2 id="breadboard-verification">Breadboard Verification</h2>
+<p>Before finalizing the schematic, I breadboarded the core of the design: the D500 LiDAR, the Curiosity Nano and the two debug LEDs. The test checks the parts of the schematic that matter most: the LiDAR wiring and power, UART1 receiving at 230400 baud on RC7, the floating PWM pin, and the LEDs on RD0 and RD1.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Breadboard_Test_LK.gif" data-desc-position="bottom"><img alt="Breadboard test of the LiDAR subsystem" src="../Breadboard_Test_LK.gif"></a>
+<strong>Figure 2:</strong> The breadboard test running. The LiDAR spins, the green "LiDAR OK" LED (RD1) stays on while valid packets arrive, and the red debug LED (RD0) blinks as a heartbeat.</p>
+<p><strong>How it works:</strong> the PIC receives the D500's 47-byte packets on UART1 (RC7), checks each packet's CRC-8, and forwards the data stream to my laptop through the Curiosity Nano's USB serial port. A Python viewer on the laptop decodes the packets and plots a live 2D point cloud of the room.</p>
+<table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LiDAR supply</td>
+<td>5.00 V from a bench supply</td>
+</tr>
+<tr>
+<td>LiDAR running current</td>
+<td>0.247 A (1.2 W), below the 290 mA used in the <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a></td>
+</tr>
+<tr>
+<td>Scan rate</td>
+<td>9.9 Hz with the PWM pin left floating, confirming the D500's internal speed control (R3 stays DNP)</td>
+</tr>
+<tr>
+<td>Points per scan</td>
+<td>about 504</td>
+</tr>
+<tr>
+<td>Packets received</td>
+<td>143,674 good, 0 CRC errors</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Breadboard_Test_PointCloud_LK.jpg" data-desc-position="bottom"><img alt="Point cloud on the laptop" src="../Breadboard_Test_PointCloud_LK.jpg"></a>
+<strong>Figure 3:</strong> Live point cloud of the room drawn from the Nano's serial data, next to the bench supply reading.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Breadboard_Test_Circuit_LK.jpg" data-desc-position="bottom"><img alt="Breadboard circuit close-up" src="../Breadboard_Test_Circuit_LK.jpg"></a>
+<strong>Figure 4:</strong> Close-up of the breadboard: Curiosity Nano, debug LEDs with 330 Ω resistors, and the D500 LiDAR.</p>
+<p><strong>What I learned for the PCB:</strong></p>
+<ul>
+<li><strong>Power path resistance matters.</strong> When the LiDAR's 5 V went through the breadboard rails, its motor start-up surge dropped the voltage below the D500's 4.5 V minimum and the LiDAR kept restarting. Wired directly to the supply, it started every time. On the PCB, the 5 V and GND traces to J2 will be wide, and C7/C8 sit right at the connector.</li>
+<li><strong>Check the cable pinout.</strong> My first attempt didn't work because the cable's wire order was reversed from what I expected. The J2 footprint pin order (1 TX, 2 PWM, 3 GND, 4 P5V) has to match the cable that will plug into it.</li>
+<li><strong>The firmware design works.</strong> Reading the LiDAR on UART1 and reporting over a second UART is the same structure the final board uses to send data to the MASTER board on UART2.</li>
+</ul>
+<p>The test firmware (<a href="../test-code/main.c">main.c</a>, stage 6) and the point-cloud viewer (<a href="../test-code/lidar_view.py">lidar_view.py</a>) are available for download.</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li>The schematic as a high-resolution PDF is available <a href="../LiDAR_Subsystem_LK_Schematic.pdf"><em>here</em></a>.</li>
