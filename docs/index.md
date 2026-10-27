@@ -8,7 +8,7 @@ as part of<br>
 for<br>
 <font size= "5"> Team 1 (Group 101) </font><br>
 
-**Submission: October 19, 2026**
+*Submission: October 19, 2026*
 </center>
 
 ## Introduction
