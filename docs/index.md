@@ -29,4 +29,4 @@ I am responsible for the LiDAR subsystem: a daughter board with its own PIC18F57
 * [Component Selection](02-Component-Selection/Component-Selection.md): LiDAR sensor, +5 V regulator and power source comparisons, final selections and pin table
 * [Power Budget](05-Power-Budget/Power-Budget.md): +5 V rail current, regulator headroom and battery life for the LiDAR board
 * [BOM](03-BOM/BOM.md)
-* [Schematic](04-Schematic/schematic.md)
+* [Schematics](04-Schematic/Schematics.md): LiDAR board schematic (KiCad), PDF and project ZIP
