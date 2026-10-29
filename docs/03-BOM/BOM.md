@@ -31,10 +31,11 @@ Download the [Excel file](BOM_LiDAR_LK.xlsx).
 | onsemi SS14 Schottky Diode | D2 | 1 | &#92;&#36;0.50 | &#92;&#36;0.50 | DigiKey | [View Product](https://www.digikey.com/en/products/detail/onsemi/SS14/965474) | [View Datasheet](https://www.onsemi.com/pdf/datasheet/ss14-d.pdf) |
 | JST B4B-PH-K-S 4-Pin Header | J2 | 1 | &#92;&#36;0.20 | &#92;&#36;0.20 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=B4B-PH-K-S(LF)(SN)) | [View Datasheet](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf) |
 | Omron B3F-1000 Pushbutton | SW1 | 1 | &#92;&#36;0.26 | &#92;&#36;0.26 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=B3F-1000) | [View Datasheet](https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3f.pdf) |
-| Würth 61200821621 Box Header, 2 × 4 | J3 | 1 | &#92;&#36;0.60 | &#92;&#36;0.60 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=61200821621) | [View Datasheet](https://www.we-online.com/components/products/datasheet/61200821621.pdf) |
-| Würth 61301011121 Pin Header, 1 × 10 | J4, J5 | 2 | &#92;&#36;0.50 | &#92;&#36;1.00 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=61301011121) | [View Datasheet](https://www.we-online.com/components/products/datasheet/61301011121.pdf) |
-| Würth 61300211121 Pin Header, 1 × 2 | JP1–JP5 | 5 | &#92;&#36;0.15 | &#92;&#36;0.75 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=61300211121) | [View Datasheet](https://www.we-online.com/components/products/datasheet/61300211121.pdf) |
-| Würth 60900213421 Jumper Shunt | JP1–JP5 | 5 | &#92;&#36;0.15 | &#92;&#36;0.75 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=60900213421) | [View Datasheet](https://www.we-online.com/components/products/datasheet/60900213421.pdf) |
+| Würth 61200821621 Box Header, 2 × 4 (already have, from kit) | J3 | 1 | Included | Included | Have | [View Product](https://www.digikey.com/en/products/result?keywords=61200821621) | [View Datasheet](https://www.we-online.com/components/products/datasheet/61200821621.pdf) |
+| 8-Wire Ribbon Cable with 2 × 4 IDC Connectors (already have, from kit) | To J3 | 1 | Included | Included | Have | [View Product](https://www.digikey.com/en/products/result?keywords=89108-0101) | Course kit part |
+| Würth 61301011121 Pin Header, 1 × 10 (already have, from kit) | J4, J5 | 2 | Included | Included | Have | [View Product](https://www.digikey.com/en/products/result?keywords=61301011121) | [View Datasheet](https://www.we-online.com/components/products/datasheet/61301011121.pdf) |
+| Würth 61300211121 Pin Header, 1 × 2 (already have, from kit) | JP1–JP5 | 5 | Included | Included | Have | [View Product](https://www.digikey.com/en/products/result?keywords=61300211121) | [View Datasheet](https://www.we-online.com/components/products/datasheet/61300211121.pdf) |
+| Würth 60900213421 Jumper Shunt (already have, from kit) | JP1–JP5 | 5 | Included | Included | Have | [View Product](https://www.digikey.com/en/products/result?keywords=60900213421) | [View Datasheet](https://www.we-online.com/components/products/datasheet/60900213421.pdf) |
 | Panasonic EEU-FR1E101 100 µF 25 V Capacitor | C1 | 1 | &#92;&#36;0.40 | &#92;&#36;0.40 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=EEU-FR1E101) | [View Datasheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1209.pdf) |
 | Panasonic EEU-FR1C220 22 µF 16 V Capacitor | C3 | 1 | &#92;&#36;0.25 | &#92;&#36;0.25 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=EEU-FR1C220) | [View Datasheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1209.pdf) |
 | EGSCST 0805 SMD Component Book (5600 pcs) | Parts below | 1 | &#92;&#36;36.90 | &#92;&#36;36.90 | Amazon | [View Product](https://www.amazon.com/dp/B0DZXQPFHP) | See rows below |
@@ -47,7 +48,7 @@ Download the [Excel file](BOM_LiDAR_LK.xlsx).
 
 </div>
 
-**Total estimated cost: &#92;&#36;107.40**
+**Total estimated cost: &#92;&#36;104.30**
 
 ## Battery Pack
 
