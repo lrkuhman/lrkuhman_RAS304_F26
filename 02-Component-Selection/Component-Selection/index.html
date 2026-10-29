@@ -1269,7 +1269,7 @@
 <p><strong>Thermal check:</strong> With a fully charged 3S pack (12.6 V) and the budgeted 502.5 mA load, the regulator dissipates about (12.6 V − 5 V) × 0.5025 A + 12.6 V × 0.015 A ≈ 4.0 W. To keep the junction below 125 °C at a 45 °C ambient (a robot running outside in Arizona), the total junction-to-air resistance must be under about 20 °C/W. A bare TO-220 is far above that, so the regulator gets a bolt-on TO-220 heatsink rated at about 15 °C/W or better, with thermal compound. If the team chooses a 2S pack, dissipation drops to about 1.8 W.</p>
 <hr>
 <h2 id="3-lidar-subsystem-power-source">3. LiDAR Subsystem – Power Source</h2>
-<p>The power source feeds the LM2940 through the barrel jack J1. It has to keep the regulator's input above 6 V for the whole run, supply the 502.5 mA budget, and last at least 4 hours to meet the team's runtime requirement (<a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/product-requirements/">PR-2</a>).</p>
+<p>The power source plugs into J1. It must stay above the LM2940's 6 V minimum and last at least 4 hours at 502.5 mA.</p>
 <table>
 <thead>
 <tr>
@@ -1297,7 +1297,7 @@
 </tbody>
 </table>
 <p><strong>Choice:</strong> Option 2: 3S Li-ion pack (three POWOBEST 3000 mAh 18650 cells in series)</p>
-<p><strong>Rationale:</strong> The robot must drive on its own, which rules out the wall adapter except for bench testing. Between the battery options, the 3S Li-ion pack gives the longest runtime (about 6.0 hours vs. about 4.0 hours) at a lower weight, and its 9.0 to 12.6 V range always keeps the LM2940 in regulation. The cost is more heat in the regulator at full charge, which the TO-220 heatsink already handles (see the thermal check above). The 9 V adapter is kept as the bench supply, since it plugs into the same barrel jack.</p>
+<p><strong>Rationale:</strong> The robot has to drive on its own, so the wall adapter is only for bench testing. The 3S pack lasts longer than the NiMH pack (about 6 hours vs. 4) and is lighter. Its extra regulator heat is handled by the heatsink.</p>
 <hr>
 <h2 id="final-selections-summary">Final Selections Summary</h2>
 <table>
@@ -1338,7 +1338,7 @@
 </table>
 <p><em>Prices were checked on October 19, 2026 and do not include shipping.</em></p>
 <h2 id="pin-table">Pin Table</h2>
-<p>Pin assignments for the PIC18F57Q43 Curiosity Nano on the LiDAR board, matching the <a href="../../04-Schematic/Schematics/">schematic</a>. All UART functions are routed with Peripheral Pin Select (PPS). The Nano's target voltage (VTG) stays at its default 3.3 V, which matches the D500's 3.3 V UART output.</p>
+<p>Pin assignments for the Curiosity Nano, matching the <a href="../../04-Schematic/Schematics/">schematic</a>. UARTs are routed with PPS, and VTG stays at 3.3 V to match the D500.</p>
 <table>
 <thead>
 <tr>
@@ -1430,7 +1430,7 @@
 </tbody>
 </table>
 <h2 id="microcontroller-configuration-mcc">Microcontroller Configuration (MCC)</h2>
-<p>The peripheral settings used on the LiDAR board. They match the firmware that was tested on the breadboard (<a href="../../04-Schematic/test-code/main.c">main.c</a>).</p>
+<p>Peripheral settings, matching the tested firmware (<a href="../../04-Schematic/test-code/main.c">main.c</a>).</p>
 <table>
 <thead>
 <tr>

@@ -923,10 +923,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-the-power-budget-helped" class="md-nav__link">
+  <a href="#conclusions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How the Power Budget Helped
+        Conclusions
       
     </span>
   </a>
@@ -1051,10 +1051,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-the-power-budget-helped" class="md-nav__link">
+  <a href="#conclusions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How the Power Budget Helped
+        Conclusions
       
     </span>
   </a>
@@ -1245,7 +1245,7 @@
 </tr>
 </tbody>
 </table>
-<p>The two debug LEDs run from the Nano's 3.3 V output, which the Nano makes from the +5 V rail, so their current is counted here. Each LED draws about (3.3 V − 2.0 V) / 330 Ω ≈ 4 mA. The power LED draws about 3 mA, rounded up to 4 mA.</p>
+<p>Each LED draws about 4 mA. The debug LEDs run from the Nano's 3.3 V, which comes from the +5 V rail.</p>
 <h2 id="c-regulator">C. Regulator</h2>
 <table>
 <thead>
@@ -1278,28 +1278,8 @@
 </tbody>
 </table>
 <p>The regulator selection table and rationale are on the <a href="../../02-Component-Selection/Component-Selection/#2-lidar-subsystem-5-v-voltage-regulator">Component Selection</a> page.</p>
-<p><strong>Regulator heat:</strong> A linear regulator turns the extra input voltage into heat: P = (V<sub>in</sub> − 5 V) × I.</p>
-<table>
-<thead>
-<tr>
-<th>Input</th>
-<th>Heat in the LM2940 at 502.5 mA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>9 V (bench adapter, or an almost empty battery)</td>
-<td>(9 − 5) × 0.5025 ≈ <strong>2.0 W</strong></td>
-</tr>
-<tr>
-<td>12.6 V (fully charged battery)</td>
-<td>(12.6 − 5) × 0.5025 ≈ <strong>3.8 W</strong></td>
-</tr>
-</tbody>
-</table>
-<p>Both are too much for a bare TO-220 package, so U2 gets a TO-220 heatsink (about 15 °C/W or better).</p>
+<p><strong>Regulator heat:</strong> (V<sub>in</sub> − 5 V) × 0.5025 A ≈ 2.0 W at 9 V and 3.8 W at 12.6 V, so U2 gets a TO-220 heatsink.</p>
 <h2 id="d-external-power-sources">D. External Power Sources</h2>
-<p>The board has one power input, the barrel jack J1. On the robot, the battery pack plugs into J1. On the bench, a 9 V adapter plugs into J1 instead. Only one source is connected at a time.</p>
 <table>
 <thead>
 <tr>
@@ -1338,7 +1318,7 @@
 </tr>
 <tr>
 <td><strong>Source 2 (bench):</strong> 9 V DC wall adapter</td>
-<td>2.1 mm barrel plug (fits J1, CUI PJ-063AH)</td>
+<td>2.1 mm barrel plug (fits J1)</td>
 <td>100 to 240 V AC</td>
 <td>9 V DC</td>
 <td>1000</td>
@@ -1362,13 +1342,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Why 3S:</strong> Each 18650 cell is 3.7 V nominal (3.0 V empty, 4.2 V full). Three in series give 9.0 V to 12.6 V, which stays above the LM2940's 6 V minimum input for the whole discharge.</li>
-<li><strong>Battery current:</strong> The cell datasheet is not available, so the pack's maximum current is taken as 1C (3000 mA), a conservative continuous rating for an 18650 cell.</li>
-<li><strong>Input current:</strong> Because the LM2940 is a linear regulator, the current it takes from either source is about the same as the current it delivers on the +5 V rail.</li>
-<li><strong>Fuse:</strong> The 750 mA slow-blow fuse (F1) sits above the 502.5 mA load, leaving room for the LiDAR motor's start-up surge.</li>
-<li><strong>Charging:</strong> The cells are charged with TP4056 USB modules, one cell per module. To charge, the cells are taken out of the series holders, because single-cell chargers cannot safely charge cells while they are wired in series.</li>
-</ul>
+<p>Both sources plug into J1, one at a time. The battery's max current assumes 1C (3000 mA), since no cell datasheet is available. The cells are charged one at a time with TP4056 modules, outside the series pack.</p>
 <h2 id="e-battery-life">E. Battery Life</h2>
 <table>
 <thead>
@@ -1392,15 +1366,13 @@
 </tr>
 </tbody>
 </table>
-<p>Battery life = capacity ÷ current = 3000 mAh ÷ 502.5 mA ≈ <strong>6.0 hours</strong>. (Cells in series add voltage, not capacity, so the pack is still 3000 mAh.)</p>
-<p>Our team's <a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/product-requirements/">product requirements</a> call for at least <strong>4 hours</strong> of runtime (PR-2). For 4 hours, this board needs at least 4 h × 502.5 mA ≈ <strong>2,010 mAh</strong>, so the 3000 mAh pack meets the requirement with about 50% to spare.</p>
-<h2 id="how-the-power-budget-helped">How the Power Budget Helped</h2>
+<p>3000 mAh ÷ 502.5 mA ≈ <strong>6.0 hours</strong>, which meets the team's 4-hour runtime requirement (<a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/product-requirements/">PR-2</a>).</p>
+<h2 id="conclusions">Conclusions</h2>
 <ul>
-<li><strong>Regulator choice confirmed:</strong> The board needs 502.5 mA with a 25% safety margin. The LM2940CT-5.0 supplies 1000 mA, leaving 497.5 mA of headroom for the LiDAR motor's start-up surge.</li>
-<li><strong>Heatsink needed:</strong> The budget showed the regulator will burn 2.0 W to 3.8 W as heat, so I added a TO-220 heatsink to the design.</li>
-<li><strong>Fuse sized:</strong> The 750 mA slow-blow fuse sits above the normal 502.5 mA load but below the 1 A limits of both the adapter and the regulator.</li>
-<li><strong>Battery sized:</strong> The LiDAR board needs at least 2,010 mAh to meet the team's 4-hour runtime requirement. The 3000 mAh 3S pack gives about 6 hours.</li>
-<li><strong>Bench check:</strong> On the breadboard, the D500 drew <strong>247 mA</strong> at 5.00 V, below the 290 mA used here, so the budget is conservative. (See <a href="../../04-Schematic/Schematics/#breadboard-verification">Schematics</a>.)</li>
+<li>The board needs <strong>502.5 mA</strong> on +5 V with the 25% margin. The LM2940CT-5.0 supplies 1000 mA, leaving <strong>497.5 mA</strong> of headroom for the LiDAR's start-up surge.</li>
+<li>The regulator dissipates 2.0 W to 3.8 W, so it needs a TO-220 heatsink.</li>
+<li>The 3S pack runs the board for about <strong>6 hours</strong>.</li>
+<li>On the bench, the D500 drew <strong>247 mA</strong>, below the 290 mA used here, so the budget is conservative.</li>
 </ul>
 <h2 id="resources">Resources</h2>
 <p>The completed power budget is available as a <a href="../PowerBudget-LiDAR.pdf">PDF</a> and as a <a href="../PowerBudget-LiDAR.xlsx">Microsoft Excel sheet</a>, built from the course template.</p>

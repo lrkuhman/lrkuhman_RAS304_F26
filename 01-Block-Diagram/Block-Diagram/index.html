@@ -1062,24 +1062,24 @@
   <h1>Individual Block Diagram</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This block diagram shows how power and data flow through my <strong>LiDAR subsystem</strong> board for OpenField. The board reads a 360° LiDAR, processes each scan on its own PIC18F57Q43 Curiosity Nano, and reports obstacle data to the team's MASTER board over the ribbon cable. It connects to the rest of the robot through Connector 1 in the <a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/06-team-block-diagram/">team block diagram</a>.</p>
+<p>Power and data flow for my LiDAR subsystem. It connects to the MASTER board through Connector 1 in the <a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/06-team-block-diagram/">team block diagram</a>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../LiDAR_Block_Diagram_LK.png" data-desc-position="bottom"><img alt="LiDAR subsystem block diagram" src="../LiDAR_Block_Diagram_LK.png"></a></p>
-<p><strong>Figure 1:</strong> LiDAR subsystem block diagram. Click the image to enlarge it.</p>
+<p><strong>Figure 1:</strong> LiDAR subsystem block diagram.</p>
 <h2 id="blocks">Blocks</h2>
 <ul>
-<li><strong>Power source:</strong> A 3S lithium-ion pack (three 18650 cells in series, 9.0–12.6 V, 3000 mAh) plugs into the J1 barrel jack. On the bench, a 9 V adapter plugs into the same jack. See the <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a>.</li>
-<li><strong>Protection and regulation:</strong> The input passes through F1, a 750 mA slow-blow fuse, to U2, an LM2940CT-5.0 low-dropout regulator with a heatsink. U2 makes the board's single +5 V rail.</li>
-<li><strong>Power levels:</strong> The +5 V rail powers the LiDAR (through jumper JP2) and the Curiosity Nano's VBUS pin (through Schottky diode D2 and jumper JP1). The Nano makes its own 3.3 V for the PIC and the debug LEDs. All grounds are shared, including ribbon pin 8.</li>
-<li><strong>Sensor:</strong> The Waveshare D500 time-of-flight LiDAR sends scan data on its TX line to RC7 (UART1 RX, 230400 baud). Its PWM speed input is left unconnected, so it uses its internal 10 Hz speed control.</li>
-<li><strong>Actuator:</strong> None on this board. The LiDAR's spinning motor is controlled inside the sensor.</li>
-<li><strong>User interface and debugging:</strong> Two debug LEDs (D3 red on RD0, D4 green on RD1) and a debounced pushbutton (SW1 on RA4).</li>
-<li><strong>Team connection:</strong> UART2 links the board to the MASTER board through Connector 1: RB0 (TX) goes to ribbon pin 2, and ribbon pin 1 comes in on RB1 (RX), at 115200 baud.</li>
+<li><strong>Power source:</strong> 3S Li-ion pack (9.0–12.6 V) into J1, or a 9 V adapter on the bench.</li>
+<li><strong>Protection and regulation:</strong> 750 mA fuse (F1), then the LM2940CT-5.0 (U2) makes +5 V.</li>
+<li><strong>Power levels:</strong> +5 V to the LiDAR and the Nano's VBUS. The Nano makes 3.3 V. Common ground, including ribbon pin 8.</li>
+<li><strong>Sensor:</strong> D500 LiDAR TX to RC7 (UART1, 230400 baud). PWM is left unconnected.</li>
+<li><strong>Actuator:</strong> None.</li>
+<li><strong>Debugging:</strong> LEDs on RD0 and RD1, pushbutton on RA4.</li>
+<li><strong>Team connection:</strong> UART2 (115200 baud): RB0 TX to ribbon pin 2, ribbon pin 1 to RB1 RX.</li>
 </ul>
 <h2 id="changes-since-the-first-version">Changes Since the First Version</h2>
 <ul>
-<li>Added the <strong>power path</strong> (battery, barrel jack, fuse, and regulator), which the first version did not show.</li>
-<li>Replaced the "TX/RX" LiDAR link with the D500's real interface: one TX data line, plus a PWM input that is left unconnected. The D500 has no RX line.</li>
-<li>Added the debug LEDs and pushbutton, and labeled every connection with its pin, UART, and baud rate.</li>
+<li>Added the power path (battery, fuse, regulator).</li>
+<li>Changed the LiDAR link to TX only (the D500 has no RX line).</li>
+<li>Added the LEDs and pushbutton, and labeled each connection.</li>
 </ul>
 <h2 id="source-files">Source Files</h2>
 <ul>
