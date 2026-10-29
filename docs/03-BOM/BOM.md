@@ -1,5 +1,8 @@
 ---
 title: Bill of Materials
+hide:
+  - navigation
+  - toc
 ---
 
 ## Overview
@@ -13,6 +16,8 @@ Everything needed to build my LiDAR subsystem board. Reference designators match
 Download the [Excel file](BOM_LiDAR_LK.xlsx).
 
 ## Component Bill of Materials
+
+<div class="bom" markdown>
 
 | Component | Ref. Des. | Qty | Unit Cost | Total Cost | Vendor | Purchase Link | Datasheet |
 |---|---|---:|---:|---:|---|---|---|
@@ -43,9 +48,13 @@ Download the [Excel file](BOM_LiDAR_LK.xlsx).
 | Samsung CL21B474KBFNNNE 0.47 µF 50 V Capacitor | C2 | 1 | &#92;&#36;0.10 | &#92;&#36;0.10 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=CL21B474KBFNNNE) | [View Datasheet](https://product.samsungsem.com/mlcc/CL21B474KBFNNN.do) |
 | Samsung CL21B104KBCNNNC 0.1 µF 50 V Capacitor | C4, C5, C6, C8 | 4 | &#92;&#36;0.10 | &#92;&#36;0.40 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=CL21B104KBCNNNC) | [View Datasheet](https://product.samsungsem.com/mlcc/CL21B104KBCNNN.do) |
 
+</div>
+
 **Total estimated cost: &#92;&#36;72.55**
 
 ## Battery Pack
+
+<div class="bom" markdown>
 
 | Component | Qty | Unit Cost | Total Cost | Vendor | Purchase Link | Datasheet |
 |---|---:|---:|---:|---|---|---|
@@ -53,3 +62,5 @@ Download the [Excel file](BOM_LiDAR_LK.xlsx).
 | DIANN 18650 Battery Holder with Leads | 3 | — | — | Amazon | [View Product](https://www.amazon.com/s?k=DIANN+18650+battery+holder+single) | [View Datasheet](https://www.amazon.com/s?k=DIANN+18650+battery+holder+single) |
 | HiLetgo TP4056 USB-C Charger Module | 3 | — | — | Amazon | [View Product](https://www.amazon.com/dp/B07PKND8KG) | [View Datasheet](https://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/TP4056.pdf) |
 | CUI PP3-002A 2.1 mm DC Barrel Plug | 1 | — | — | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=PP3-002A) | [View Datasheet](https://www.sameskydevices.com/product/resource/pp3-002a.pdf) |
+
+</div>

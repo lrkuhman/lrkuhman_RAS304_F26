@@ -32,3 +32,11 @@ blockquote{
     max-width: 100%;
     height: auto;
 }
+
+/* BOM tables: full width, readable component column */
+.bom .md-typeset__table { display: block; width: 100%; }
+.md-typeset .bom table:not([class]) { display: table; width: 100%; font-size: 0.68rem; }
+.md-typeset .bom table:not([class]) td,
+.md-typeset .bom table:not([class]) th { padding: 0.5em 0.6em; word-break: normal; overflow-wrap: normal; }
+.md-typeset .bom table:not([class]) td:first-child { min-width: 16em; }
+.md-typeset .bom table:not([class]) td:nth-child(n+3) { white-space: nowrap; }
