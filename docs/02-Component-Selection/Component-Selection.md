@@ -10,7 +10,7 @@ The major components on this board are:
 
 1. **LiDAR Subsystem – Ranging sensor (ToF LiDAR)**
 2. **LiDAR Subsystem – +5 V voltage regulator** (the "5V step-down" block)
-3. **LiDAR Subsystem – Power source** (shared team battery that feeds the regulator)
+3. **LiDAR Subsystem – Power source** (the battery pack that feeds the regulator)
 
 The PIC18F57Q43 Curiosity Nano was selected for us and is not compared here (it does appear in the [Power Budget](../05-Power-Budget/Power-Budget.md)).
 
@@ -43,7 +43,7 @@ The PIC18F57Q43 Curiosity Nano was selected for us and is not compared here (it 
 
 ## 2. LiDAR Subsystem – +5 V Voltage Regulator
 
-The regulator takes the team battery voltage down to the +5 V that powers the D500 and the Curiosity Nano's VBUS pin. The budgeted load is 502.5 mA including the 25% margin (see the [Power Budget](../05-Power-Budget/Power-Budget.md)).
+The regulator takes the battery voltage down to the +5 V that powers the D500 and the Curiosity Nano's VBUS pin. The budgeted load is 502.5 mA including the 25% margin (see the [Power Budget](../05-Power-Budget/Power-Budget.md)).
 
 | **Solution** | **Pros** | **Cons** |
 | --- | --- | --- |
@@ -53,15 +53,25 @@ The regulator takes the team battery voltage down to the +5 V that powers the D5
 
 **Choice:** Option 2: Texas Instruments LM2940CT-5.0/NOPB
 
-**Rationale:** The course requires a linear regulator, and the team has not locked in the battery yet. The LM2940's 1 V maximum dropout lets the same board run from a 2S LiPo, a 3S LiPo, a 9.6 V NiMH pack or a 12 V lead-acid battery, while the 7805 needs at least 7 V and rules out 2S packs. Its built-in reverse-battery protection matters on a robot whose battery is plugged and unplugged every session, since one backwards plug could destroy the LiDAR. Its 1 A rating covers the 502.5 mA budget with 497.5 mA left over. The custom transistor regulator was rejected because it cannot hold 5 V within the Curiosity Nano's VBUS limits and has no protection.
+**Rationale:** The course requires a linear regulator, and this one was chosen before the battery was final, so it had to cover any likely pack. The LM2940's 1 V maximum dropout lets the same board run from a 2S LiPo, a 3S LiPo, a 9.6 V NiMH pack or a 12 V lead-acid battery, while the 7805 needs at least 7 V and rules out 2S packs. Its built-in reverse-battery protection matters on a robot whose battery is plugged and unplugged every session, since one backwards plug could destroy the LiDAR. Its 1 A rating covers the 502.5 mA budget with 497.5 mA left over. The custom transistor regulator was rejected because it cannot hold 5 V within the Curiosity Nano's VBUS limits and has no protection.
 
 **Thermal check:** With a fully charged 3S pack (12.6 V) and the budgeted 502.5 mA load, the regulator dissipates about (12.6 V − 5 V) × 0.5025 A + 12.6 V × 0.015 A ≈ 4.0 W. To keep the junction below 125 °C at a 45 °C ambient (a robot running outside in Arizona), the total junction-to-air resistance must be under about 20 °C/W. A bare TO-220 is far above that, so the regulator gets a bolt-on TO-220 heatsink rated at about 15 °C/W or better, with thermal compound. If the team chooses a 2S pack, dissipation drops to about 1.8 W.
 
 ---
 
-## 3. LiDAR Subsystem – Power Source (shared team battery)
+## 3. LiDAR Subsystem – Power Source
 
-Will calculate and decide as a group.
+The power source feeds the LM2940 through the barrel jack J1. It has to keep the regulator's input above 6 V for the whole run, supply the 502.5 mA budget, and last at least 4 hours to meet the team's runtime requirement ([PR-2](https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/product-requirements/)).
+
+| **Solution** | **Pros** | **Cons** |
+| --- | --- | --- |
+| **Option 1.**<br>9 V DC wall adapter, 1 A, 2.1 mm barrel plug | \* Steady 9 V with nothing to charge or replace<br>\* Lowest regulator heat of the three (about 2.0 W)<br>\* Plugs straight into J1 | \* Needs a wall outlet, so the robot cannot drive anywhere<br>\* Useful only for bench testing |
+| **Option 2.**<br>3S Li-ion pack: three POWOBEST 3000 mAh 18650 cells in single-cell holders, wired in series, charged with HiLetgo TP4056 USB-C modules | \* 9.0 to 12.6 V over the whole discharge, always above the LM2940's 6 V minimum<br>\* 3000 mAh gives about 6.0 hours at 502.5 mA, well over the 4-hour requirement<br>\* Light and compact for a mobile robot<br>\* Cells are cheap, common, and replaceable one at a time<br>\* Charges from any USB-C supply with low-cost TP4056 modules | \* Most regulator heat at full charge (about 3.8 W), so the heatsink is required<br>\* Cells must be removed from the series holders to charge them one at a time<br>\* Lithium-ion cells need care: no crushing, over-charging, or over-discharging |
+| **Option 3.**<br>8 × AA NiMH pack (9.6 V nominal, about 2000 mAh) | \* NiMH is a forgiving chemistry that is hard to damage<br>\* AA cells and chargers are easy to find | \* About 2000 mAh gives only about 4.0 hours, right at the requirement with no margin<br>\* Eight cells are heavier and bulkier than three 18650s<br>\* Voltage sags more under load |
+
+**Choice:** Option 2: 3S Li-ion pack (three POWOBEST 3000 mAh 18650 cells in series)
+
+**Rationale:** The robot must drive on its own, which rules out the wall adapter except for bench testing. Between the battery options, the 3S Li-ion pack gives the longest runtime (about 6.0 hours vs. about 4.0 hours) at a lower weight, and its 9.0 to 12.6 V range always keeps the LM2940 in regulation. The cost is more heat in the regulator at full charge, which the TO-220 heatsink already handles (see the thermal check above). The 9 V adapter is kept as the bench supply, since it plugs into the same barrel jack.
 
 ---
 
@@ -71,25 +81,46 @@ Will calculate and decide as a group.
 | --- | --- | --- | --- |
 | **LiDAR Subsystem – Ranging sensor** | Waveshare D500 LiDAR Kit (LDRobot STL-19P) | about &#92;&#36;50 | [Amazon](https://www.amazon.com/dp/B0GSTXW158) |
 | **LiDAR Subsystem – +5 V regulator** | TI LM2940CT-5.0/NOPB + TO-220 heatsink | &#92;&#36;1.94 | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/LM2940CT-5-0-NOPB/32575) |
-| **LiDAR Subsystem – Power source (team)** | Will calculate and decide as a group. | — | — |
+| **LiDAR Subsystem – Power source** | 3 × POWOBEST 3000 mAh 18650 cells in series, single-cell holders, TP4056 USB-C chargers | See [BOM](../03-BOM/BOM.md) | Amazon |
 | Microcontroller (selected for us) | Microchip PIC18F57Q43 Curiosity Nano (DM164150) | — | — |
 
 *Prices were checked on October 19, 2026 and do not include shipping.*
 
 ## Pin Table
 
-Proposed pin assignments for the PIC18F57Q43 Curiosity Nano on the LiDAR daughter board. All UART and PWM functions are routed with Peripheral Pin Select (PPS), so pins can move when the schematic is drawn. The Nano's target voltage (VTG) stays at its default 3.3 V, which matches the D500's 3.3 V UART output and its 3.6 V maximum PWM input.
+Pin assignments for the PIC18F57Q43 Curiosity Nano on the LiDAR board, matching the [schematic](../04-Schematic/Schematics.md). All UART functions are routed with Peripheral Pin Select (PPS). The Nano's target voltage (VTG) stays at its default 3.3 V, which matches the D500's 3.3 V UART output.
 
 | Signal | PIC18F57Q43 pin | Peripheral | Direction | Connects to |
 | --- | --- | --- | --- | --- |
-| LiDAR data | RC7 | UART1 RX (PPS) | Input | D500 pin 1 (Tx) |
-| LiDAR motor speed (optional) | RC6 | PWM1 output (PPS) | Output | D500 pin 2 (PWM); leave low for the default 10 Hz scan |
-| Team bus TX | RB0 | UART2 TX (PPS) | Output | Connector 1, pin 2 → MASTER RX |
-| Team bus RX | RB1 | UART2 RX (PPS) | Input | Connector 1, pin 1 ← MASTER TX |
-| Debug serial TX | RF0 | UART (PPS) to on-board debugger CDC | Output | USB virtual COM port (development only) |
-| Debug serial RX | RF1 | UART (PPS) from on-board debugger CDC | Input | USB virtual COM port (development only) |
-| Status LED | RF3 | GPIO | Output | On-board LED0 (shows "LiDAR packets OK") |
-| +5 V | VBUS | Power in | — | LM2940 output, also D500 pin 4 (P5V) |
-| Ground | GND | — | — | Battery ground, D500 pin 3, Connector 1 ground |
+| LiDAR data | RC7 | UART1 RX (PPS) | Input | D500 pin 1 (Tx), through JP3 |
+| LiDAR motor speed (not used) | RC6 | GPIO, high-impedance input | Input | D500 pin 2 (PWM) through R2. Left unconnected (floating), so the D500 uses its internal 10 Hz speed control |
+| Team bus TX | RB0 | UART2 TX (PPS) | Output | Ribbon (J3) pin 2 → MASTER RX |
+| Team bus RX | RB1 | UART2 RX (PPS) | Input | Ribbon (J3) pin 1 ← MASTER TX, with 10 k pull-up R4 |
+| Debug LED | RD0 | GPIO | Output | Red LED D3 (heartbeat) |
+| Status LED | RD1 | GPIO | Output | Green LED D4 ("LiDAR OK") |
+| Pushbutton | RA4 | GPIO, Schmitt-trigger input | Input | SW1 (active-low, RC debounced) |
+| Debug serial TX / RX | RF0 / RF1 | UART5 (PPS) to the on-board debugger | Output / Input | USB virtual COM port (development only) |
+| Spare | RA0–RA3, RA5, RC2–RC4, RD2–RD7, RE0–RE1 | GPIO / ADC / I²C / SPI | — | Expansion headers J4 and J5 |
+| +5 V | VBUS | Power in | — | LM2940 output, through D2 and JP1 |
+| Ground | GND | — | — | Battery ground, D500 pin 3, ribbon pin 8 |
 
-> Note: The D500 has only a Tx line and a PWM input (no Rx), so the "RX" line from the PIC to the LiDAR in the block diagram becomes the optional PWM speed-control line. The block diagram will be updated to match.
+## Microcontroller Configuration (MCC)
+
+The peripheral settings used on the LiDAR board. They match the firmware that was tested on the breadboard ([main.c](../04-Schematic/test-code/main.c)).
+
+| Module | Setting | Value |
+| --- | --- | --- |
+| **System clock** | Oscillator | HFINTOSC, 64 MHz (no external crystal) |
+| | Watchdog timer | Off |
+| | Programming | Low-voltage programming on (Curiosity Nano) |
+| **UART1 (LiDAR)** | Mode | Asynchronous 8-bit, receive only, 8N1 |
+| | Baud rate | 230400 (U1BRG = 68, BRGS = 1 → 231,884 baud, +0.6% error) |
+| | Pins | RX ← RC7 (U1RXPPS) |
+| **UART2 (team bus)** | Mode | Asynchronous 8-bit, transmit and receive, 8N1 |
+| | Baud rate | 115200 (U2BRG = 138, BRGS = 1 → 115,108 baud, −0.08% error) |
+| | Pins | TX → RB0 (RB0PPS), RX ← RB1 (U2RXPPS) |
+| **UART5 (debug, development only)** | Mode | Asynchronous 8-bit, transmit and receive, through the on-board debugger's USB serial port |
+| | Pins | TX → RF0, RX ← RF1 |
+| **GPIO** | Outputs | RD0 (debug LED), RD1 (status LED) |
+| | Inputs | RA4 (button, Schmitt-trigger input level), RC6 (LiDAR PWM, left high-impedance) |
+| | Analog | Disabled (ANSEL = 0) on every pin used above |

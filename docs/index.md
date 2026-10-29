@@ -13,7 +13,7 @@ for<br>
 
 ## Introduction
 
-This datasheet documents my individual subsystem, the **LiDAR subsystem**, for OpenField, our RAS 304 team project. It collects the block diagram, component selections, power budget and (later) the schematic and BOM for the LiDAR daughter board.
+This datasheet documents my individual subsystem, the **LiDAR subsystem**, for OpenField, our RAS 304 team project. It collects the block diagram, component selections, bill of materials, schematic, and power budget for the LiDAR board.
 
 ### Project Summary
 
@@ -26,7 +26,7 @@ I am responsible for the LiDAR subsystem: a daughter board with its own PIC18F57
 ### Datasheet Pages
 
 * [Individual Block Diagram](01-Block-Diagram/Block-Diagram.md)
-* [Component Selection](02-Component-Selection/Component-Selection.md): LiDAR sensor, +5 V regulator and power source comparisons, final selections and pin table
-* [Power Budget](05-Power-Budget/Power-Budget.md): +5 V rail current, regulator headroom and battery life for the LiDAR board
-* [BOM](03-BOM/BOM.md)
+* [Component Selection](02-Component-Selection/Component-Selection.md): LiDAR sensor, +5 V regulator and power source comparisons, final selections, pin table, and microcontroller configuration
+* [BOM](03-BOM/BOM.md): every part on the board, with reference designators
 * [Schematics](04-Schematic/Schematics.md): LiDAR board schematic (KiCad), PDF and project ZIP
+* [Power Budget](05-Power-Budget/Power-Budget.md): +5 V rail current, regulator headroom, power sources, and battery life

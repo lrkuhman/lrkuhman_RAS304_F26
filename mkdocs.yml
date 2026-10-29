@@ -1,6 +1,6 @@
 site_name: RAS 304 Landon Kuhman Data Sheet
-site_url: https://ras-embedded-systems.github.io/RAS304DataSheetTemplate/
-repo_url: https://github.com/ras-embedded-systems/RAS304DataSheetTemplate
+site_url: https://lrkuhman.github.io/lrkuhman_RAS304_F26/
+repo_url: https://github.com/lrkuhman/lrkuhman_RAS304_F26
 edit_uri: edit/main/docs/
 theme:
   name: material
@@ -69,11 +69,11 @@ extra_javascript:
 not_in_nav: |
   static
   
-copyright: "Copyright &copy; 2026 team-name-here"
+copyright: "Copyright &copy; 2026 Landon Kuhman - OpenField (Team 101)"
 
 extra:
   generator: false
   social:
     - icon: fontawesome/regular/file-code
       link: 'https://github.com/lrkuhman/lrkuhman_RAS304_F26'
-      name: 2026 Site    
+      name: GitHub repository    
