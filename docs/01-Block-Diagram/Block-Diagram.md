@@ -13,7 +13,7 @@ Power and data flow for my LiDAR subsystem. It connects to the MASTER board thro
 ## Blocks
 
 * **Power source:** 3S Li-ion pack (9.0–12.6 V) into J1, or a 9 V adapter on the bench.
-* **Protection and regulation:** 800 mA fuse (F1), then the LM2940CT-5.0 (U2) makes +5 V.
+* **Protection and regulation:** 750 mA fuse (F1), then the LM2940CT-5.0 (U2) makes +5 V.
 * **Power levels:** +5 V to the LiDAR and the Nano's VBUS. The Nano makes 3.3 V. Common ground, including ribbon pin 8.
 * **Sensor:** D500 LiDAR TX to RC7 (UART1, 230400 baud). PWM is left unconnected.
 * **Actuator:** None.
