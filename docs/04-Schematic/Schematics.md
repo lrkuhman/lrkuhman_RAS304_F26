@@ -6,7 +6,7 @@ title: Schematics
 
 This schematic is for my **LiDAR subsystem** board in OpenField (Team 1). The board uses a PIC18F57Q43 Curiosity Nano to read a Waveshare D500 360° time-of-flight LiDAR on UART1 at 230400 baud. It processes the scan and sends the results to the team's MASTER board over UART2, through the 8-pin team ribbon cable shown in the [team block diagram](https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/06-team-block-diagram/).
 
-The parts match my [Component Selection](../02-Component-Selection/Component-Selection.md) and [Power Budget](../05-Power-Budget/Power-Budget.md) pages: a D500 LiDAR, an LM2940CT-5.0 linear regulator, and a 487.5 mA load on the +5 V rail.
+The parts match my [Component Selection](../02-Component-Selection/Component-Selection.md) and [Power Budget](../05-Power-Budget/Power-Budget.md) pages: a D500 LiDAR, an LM2940CT-5.0 linear regulator, and a 502.5 mA load on the +5 V rail (including the 25% safety margin).
 
 ![LiDAR subsystem schematic](LiDAR_Subsystem_LK_Schematic.png)
 **Figure 1:** LiDAR subsystem schematic, drawn in KiCad. Click the image to enlarge it.
