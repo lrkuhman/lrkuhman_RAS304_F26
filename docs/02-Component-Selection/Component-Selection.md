@@ -61,7 +61,7 @@ The regulator takes the battery voltage down to the +5 V that powers the D500 an
 
 ## 3. LiDAR Subsystem – Power Source
 
-The power source feeds the LM2940 through the barrel jack J1. It has to keep the regulator's input above 6 V for the whole run, supply the 502.5 mA budget, and last at least 4 hours to meet the team's runtime requirement ([PR-2](https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/product-requirements/)).
+The power source plugs into J1. It must stay above the LM2940's 6 V minimum and last at least 4 hours at 502.5 mA.
 
 | **Solution** | **Pros** | **Cons** |
 | --- | --- | --- |
@@ -71,7 +71,7 @@ The power source feeds the LM2940 through the barrel jack J1. It has to keep the
 
 **Choice:** Option 2: 3S Li-ion pack (three POWOBEST 3000 mAh 18650 cells in series)
 
-**Rationale:** The robot must drive on its own, which rules out the wall adapter except for bench testing. Between the battery options, the 3S Li-ion pack gives the longest runtime (about 6.0 hours vs. about 4.0 hours) at a lower weight, and its 9.0 to 12.6 V range always keeps the LM2940 in regulation. The cost is more heat in the regulator at full charge, which the TO-220 heatsink already handles (see the thermal check above). The 9 V adapter is kept as the bench supply, since it plugs into the same barrel jack.
+**Rationale:** The robot has to drive on its own, so the wall adapter is only for bench testing. The 3S pack lasts longer than the NiMH pack (about 6 hours vs. 4) and is lighter. Its extra regulator heat is handled by the heatsink.
 
 ---
 
@@ -88,7 +88,7 @@ The power source feeds the LM2940 through the barrel jack J1. It has to keep the
 
 ## Pin Table
 
-Pin assignments for the PIC18F57Q43 Curiosity Nano on the LiDAR board, matching the [schematic](../04-Schematic/Schematics.md). All UART functions are routed with Peripheral Pin Select (PPS). The Nano's target voltage (VTG) stays at its default 3.3 V, which matches the D500's 3.3 V UART output.
+Pin assignments for the Curiosity Nano, matching the [schematic](../04-Schematic/Schematics.md). UARTs are routed with PPS, and VTG stays at 3.3 V to match the D500.
 
 | Signal | PIC18F57Q43 pin | Peripheral | Direction | Connects to |
 | --- | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ Pin assignments for the PIC18F57Q43 Curiosity Nano on the LiDAR board, matching 
 
 ## Microcontroller Configuration (MCC)
 
-The peripheral settings used on the LiDAR board. They match the firmware that was tested on the breadboard ([main.c](../04-Schematic/test-code/main.c)).
+Peripheral settings, matching the tested firmware ([main.c](../04-Schematic/test-code/main.c)).
 
 | Module | Setting | Value |
 | --- | --- | --- |
