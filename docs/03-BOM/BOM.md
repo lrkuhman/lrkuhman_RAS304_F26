@@ -7,7 +7,7 @@ hide:
 
 ## Overview
 
-Everything needed to build my LiDAR subsystem board. Reference designators match the [schematic](../04-Schematic/Schematics.md). Prices are in US dollars without shipping. Parts come from DigiKey except the LiDAR, the fuse holder, and the 0805 component book, which supplies every resistor, ceramic capacitor, and LED. Datasheets for book parts are for equivalent manufacturer parts.
+Everything needed to build my LiDAR subsystem board. Reference designators match the [schematic](../04-Schematic/Schematics.md). Prices are in US dollars without shipping. Parts come from DigiKey except the LiDAR and the 0805 component book, which supplies every resistor, ceramic capacitor, and LED. Datasheets for book parts are for equivalent manufacturer parts.
 
 ## Bill of Materials (Spreadsheet)
 
@@ -27,7 +27,7 @@ Download the [Excel file](BOM_LiDAR_LK.xlsx).
 | Aavid 507002B00000G TO-220 Heatsink | U2 | 1 | &#92;&#36;0.70 | &#92;&#36;0.70 | DigiKey | [View Product](https://www.digikey.com/en/products/detail/boyd-laconia-llc/507002B00000G/5846) | [View Datasheet](https://info.boydcorp.com/hubfs/Thermal/Air-Cooling/Boyd-Board-Level-Heatsinks-Catalog.pdf) |
 | CUI PJ-063AH Barrel Jack | J1 | 1 | &#92;&#36;1.50 | &#92;&#36;1.50 | DigiKey | [View Product](https://www.digikey.com/en/products/detail/cui-devices/PJ-063AH/2161208) | [View Datasheet](https://www.sameskydevices.com/product/resource/pj-063ah.pdf) |
 | Eaton GMC-750-R 750 mA Slow-Blow Fuse, 5 × 20 mm | F1 | 1 | &#92;&#36;0.70 | &#92;&#36;0.70 | DigiKey | [View Product](https://www.digikey.com/en/products/detail/eaton-electronics-division/GMC-750-R/1877496) | [View Datasheet](https://www.mouser.com/datasheet/2/87/eaton%20corporation_bus-elx-ds-4395-gmc-1160696.pdf) |
-| BLX-A Fuse Holder with Cover, 5 × 20 mm | F1 | 1 | &#92;&#36;0.10 | &#92;&#36;0.10 | Tayda | [View Product](https://www.taydaelectronics.com/fuse-holder-with-cover-5x20mm-blx-a-pcb-6-3a-250v.html) | [View Datasheet](https://www.lcsc.com/product-detail/C3131.html) |
+| BLX-A Fuse Holder with Cover, 5 × 20 mm (already have, from kit) | F1 | 1 | Included | Included | Have | [View Product](https://www.taydaelectronics.com/fuse-holder-with-cover-5x20mm-blx-a-pcb-6-3a-250v.html) | [View Datasheet](https://www.lcsc.com/product-detail/C3131.html) |
 | onsemi SS14 Schottky Diode | D2 | 1 | &#92;&#36;0.50 | &#92;&#36;0.50 | DigiKey | [View Product](https://www.digikey.com/en/products/detail/onsemi/SS14/965474) | [View Datasheet](https://www.onsemi.com/pdf/datasheet/ss14-d.pdf) |
 | JST B4B-PH-K-S 4-Pin Header | J2 | 1 | &#92;&#36;0.20 | &#92;&#36;0.20 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=B4B-PH-K-S(LF)(SN)) | [View Datasheet](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf) |
 | Omron B3F-1000 Pushbutton | SW1 | 1 | &#92;&#36;0.26 | &#92;&#36;0.26 | DigiKey | [View Product](https://www.digikey.com/en/products/result?keywords=B3F-1000) | [View Datasheet](https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3f.pdf) |
@@ -47,7 +47,7 @@ Download the [Excel file](BOM_LiDAR_LK.xlsx).
 
 </div>
 
-**Total estimated cost: &#92;&#36;107.50**
+**Total estimated cost: &#92;&#36;107.40**
 
 ## Battery Pack
 
