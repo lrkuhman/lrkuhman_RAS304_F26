@@ -947,10 +947,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusions" class="md-nav__link">
+  <a href="#how-the-power-budget-helped" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusions
+        How the Power Budget Helped
       
     </span>
   </a>
@@ -1140,10 +1140,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusions" class="md-nav__link">
+  <a href="#how-the-power-budget-helped" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusions
+        How the Power Budget Helped
       
     </span>
   </a>
@@ -1238,7 +1238,7 @@
 
 <h2 id="overview">Overview</h2>
 <p>This power budget checks that the +5 V regulator selected on the <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> page can power everything on my <strong>LiDAR subsystem</strong> daughter board at the same time, with the required 25% safety margin. It follows the course power budget template; the filled-in spreadsheet is available under <a href="#resources">Resources</a>.</p>
-<p>The LiDAR board has one power rail (+5 V). The Curiosity Nano makes its own 3.3 V target voltage (VTG) from its VBUS pin with its on-board MIC5353 regulator, so no separate 3.3 V regulator is needed and the +12 V and +3.3 V sections of the template are unused.</p>
+<p>The LiDAR board has one power rail (+5 V), made from a 9 V DC adapter (or a battery on the robot) by an LM2940CT-5.0 regulator. The Curiosity Nano makes its own 3.3 V target voltage (VTG) from its VBUS pin with its on-board MIC5353 regulator, so no separate 3.3 V regulator is needed and the +12 V and +3.3 V sections of the template are unused.</p>
 <h2 id="a-major-components">A. Major Components</h2>
 <table>
 <thead>
@@ -1301,12 +1301,20 @@
 <td>100</td>
 </tr>
 <tr>
+<td>Indicator LEDs (D1 power, D3 debug, D4 "LiDAR OK")</td>
+<td>Green/red LEDs with 1 kΩ / 330 Ω resistors</td>
+<td>+3.3 to +5 V</td>
+<td>3</td>
+<td>4</td>
+<td>12</td>
+</tr>
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td><strong>Subtotal</strong></td>
-<td><strong>390</strong></td>
+<td><strong>402</strong></td>
 </tr>
 <tr>
 <td></td>
@@ -1322,10 +1330,11 @@
 <td></td>
 <td></td>
 <td><strong>Total current required on +5 V rail</strong></td>
-<td><strong>487.5</strong></td>
+<td><strong>502.5</strong></td>
 </tr>
 </tbody>
 </table>
+<p>The two debug LEDs run from the Nano's 3.3 V output, which the Nano makes from the +5 V rail, so their current is counted here. Each LED draws about (3.3 V − 2.0 V) / 330 Ω ≈ 4 mA. The power LED draws about 3 mA, rounded up to 4 mA.</p>
 <h2 id="c-regulator">C. Regulator</h2>
 <table>
 <thead>
@@ -1353,20 +1362,104 @@
 <td></td>
 <td></td>
 <td><strong>Total remaining current available on +5 V rail</strong></td>
-<td><strong>512.5</strong></td>
+<td><strong>497.5</strong></td>
 </tr>
 </tbody>
 </table>
-<p>The regulator selection table and rationale are on the <a href="../../02-Component-Selection/Component-Selection/#2-lidar-subsystem-5-v-voltage-regulator">Component Selection</a> page. Because it is a linear regulator, it will likely need a TO-220 heatsink: if the group picks a 12 V-class battery (12.6 V fully charged), it dissipates about 3.9 W at 487.5 mA.</p>
+<p>The regulator selection table and rationale are on the <a href="../../02-Component-Selection/Component-Selection/#2-lidar-subsystem-5-v-voltage-regulator">Component Selection</a> page.</p>
+<p><strong>Regulator heat:</strong> A linear regulator turns the extra input voltage into heat: P = (V<sub>in</sub> − 5 V) × I.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Heat in the LM2940 at 502.5 mA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 V adapter</td>
+<td>(9 − 5) × 0.5025 ≈ <strong>2.0 W</strong></td>
+</tr>
+<tr>
+<td>12.6 V (fully charged 3S battery)</td>
+<td>(12.6 − 5) × 0.5025 ≈ <strong>3.8 W</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Both are too much for a bare TO-220 package, so U2 gets a TO-220 heatsink (about 15 °C/W or better).</p>
 <h2 id="d-external-power-source">D. External Power Source</h2>
-<p>Will calculate and decide as a group.</p>
+<table>
+<thead>
+<tr>
+<th>Power source</th>
+<th>Part number</th>
+<th>Supply voltage range</th>
+<th>Output voltage</th>
+<th>Max current (mA)</th>
+<th>Total current (mA)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 V DC wall adapter</td>
+<td>Barrel plug to fit J1 (CUI PJ-063AH)</td>
+<td>100 to 240 V AC</td>
+<td>9 V DC</td>
+<td>1000</td>
+<td>1000</td>
+</tr>
+<tr>
+<td><strong>Rail connected:</strong> +5 V rail, through the LM2940CT-5.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>502.5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>Total remaining current available on the adapter</strong></td>
+<td><strong>497.5</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Because the LM2940 is a linear regulator, the current it takes from the adapter is about the same as the current it delivers on the +5 V rail. The 750 mA slow-blow fuse (F1) sits above this 502.5 mA load, leaving room for the LiDAR motor's start-up surge without blowing.</p>
 <h2 id="e-battery-life">E. Battery Life</h2>
-<p>Will calculate and decide as a group.</p>
-<h2 id="conclusions">Conclusions</h2>
+<p>On the robot, the board runs from a battery instead of the adapter. The final robot battery is chosen as a group, so this calculation uses an example pack that fits the board's input range.</p>
+<table>
+<thead>
+<tr>
+<th>Battery</th>
+<th>Part number</th>
+<th>Voltage range</th>
+<th>Capacity (mAh)</th>
+<th>Required by regulator (mA)</th>
+<th>Battery life</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3S Li-ion pack (example)</td>
+<td>3 × 18650 cells in series, 2600 mAh</td>
+<td>+9.0 to +12.6 V</td>
+<td>2600</td>
+<td>502.5</td>
+<td><strong>5.2 hours</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Battery life = capacity ÷ current = 2600 mAh ÷ 502.5 mA ≈ <strong>5.2 hours</strong>.</p>
+<p>Our team's <a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/product-requirements/">product requirements</a> call for at least <strong>4 hours</strong> of runtime (PR-2). For 4 hours, this board alone needs at least 4 h × 502.5 mA ≈ <strong>2,010 mAh</strong>, so a 2600 mAh pack meets the requirement with about 30% to spare.</p>
+<h2 id="how-the-power-budget-helped">How the Power Budget Helped</h2>
 <ul>
-<li>The LiDAR board needs <strong>487.5 mA</strong> at +5 V with the 25% margin, and the LM2940CT-5.0 can supply <strong>1000 mA</strong>, leaving <strong>512.5 mA</strong> of headroom, enough for a start-up surge from the LiDAR motor.</li>
-<li>A single +5 V rail powers everything on the board; the Curiosity Nano generates the PIC's 3.3 V internally.</li>
-<li><strong>Design actions:</strong> add a TO-220 heatsink (about 15 °C/W or better) to the LM2940, and measure the D500's start-up current on the bench to confirm it stays under the regulator's 1 A rating.</li>
+<li><strong>Regulator choice confirmed:</strong> The board needs 502.5 mA with a 25% safety margin. The LM2940CT-5.0 supplies 1000 mA, leaving 497.5 mA of headroom for the LiDAR motor's start-up surge.</li>
+<li><strong>Heatsink needed:</strong> The budget showed the regulator will burn 2.0 W to 3.8 W as heat, so I added a TO-220 heatsink to the design.</li>
+<li><strong>Fuse sized:</strong> The 750 mA slow-blow fuse sits above the normal 502.5 mA load but well below the adapter's 1 A rating.</li>
+<li><strong>Battery sized:</strong> The LiDAR board needs at least 2,010 mAh to meet the team's 4-hour runtime requirement. This number goes into the team's battery decision.</li>
+<li><strong>Bench check:</strong> On the breadboard, the D500 drew <strong>247 mA</strong> at 5.00 V, below the 290 mA used here, so the budget is conservative. (See <a href="../../04-Schematic/Schematics/#breadboard-verification">Schematics</a>.)</li>
 </ul>
 <h2 id="resources">Resources</h2>
 <p>The completed power budget is available as a <a href="../PowerBudget-LiDAR.pdf">PDF</a> and as a <a href="../PowerBudget-LiDAR.xlsx">Microsoft Excel sheet</a>, built from the course template.</p>
