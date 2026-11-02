@@ -1,0 +1,25 @@
+Reference,Quantity,Value,Footprint,Purchase
+C1,1,100µF 25V,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,ASU Purchase
+C2,1,0.47µF 50V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
+C3,1,100µF 25V,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,ASU Purchase
+"C4,C5,C6,C8",4,0.1µF 50V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
+C7,1,10µF 16V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
+C9,1,1µF 16V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
+"D1,D4",2,Green LED,LED_SMD:LED_0805_2012Metric,ASU Purchase
+D2,1,SS14,Diode_SMD:D_SMA,ASU Purchase
+D3,1,Red LED,LED_SMD:LED_0805_2012Metric,ASU Purchase
+F1,1,750mA T,Footprints_LK:Fuseholder_BLX-A_5x20mm_P22.30mm_LK,Self Purchase (fuse) / Already Owned (holder)
+J1,1,PJ-063AH,Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal,Already Owned
+J2,1,D500 LiDAR (STL-19P),Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical,Already Owned
+J3,1,Team Bus 2x4 IDC,Connector_IDC:IDC-Header_2x04_P2.54mm_Vertical,Already Owned
+"J4,J5",2,Spare GPIO 1x10,Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical,Already Owned
+JP1-JP5,5,Jumper_2_Open,Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical,Already Owned
+"R1,R8",2,1k,Resistor_SMD:R_0805_2012Metric,ASU Purchase
+R2,1,100R,Resistor_SMD:R_0805_2012Metric,ASU Purchase
+R3,1,10k DNP,Resistor_SMD:R_0805_2012Metric,Not fitted
+"R4,R7",2,10k,Resistor_SMD:R_0805_2012Metric,ASU Purchase
+"R5,R6",2,330R,Resistor_SMD:R_0805_2012Metric,ASU Purchase
+SW1,1,B3F-1000,Button_Switch_THT:SW_PUSH_6mm,Already Owned
+TP1-TP8,8,TestPoint,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,PCB pad
+U1,1,PIC18F57Q43 Curiosity Nano,Footprints_LK:NANO_Footprint_LK,Already Owned
+U2,1,LM2940CT-5.0,Package_TO_SOT_THT:TO-220-3_Vertical,ASU Purchase
