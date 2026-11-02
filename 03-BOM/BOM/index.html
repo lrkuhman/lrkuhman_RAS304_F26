@@ -762,6 +762,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cost-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bill-of-materials-spreadsheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -784,10 +795,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#battery-pack" class="md-nav__link">
+  <a href="#datasheets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Battery Pack
+        Datasheets
       
     </span>
   </a>
@@ -958,6 +969,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cost-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bill-of-materials-spreadsheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -980,10 +1002,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#battery-pack" class="md-nav__link">
+  <a href="#datasheets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Battery Pack
+        Datasheets
       
     </span>
   </a>
@@ -1070,10 +1092,60 @@
   <h1>Bill of Materials</h1>
 
 <h2 id="overview">Overview</h2>
-<p>Everything needed to build my LiDAR subsystem board. Reference designators match the <a href="../../04-Schematic/Schematics/">schematic</a>. Prices are in US dollars without shipping. Parts come from DigiKey except the LiDAR and the 0805 component book, which supplies every resistor, ceramic capacitor, and LED. Datasheets for book parts are for equivalent manufacturer parts.</p>
+<p>Every part on my LiDAR subsystem board, from the <a href="../../04-Schematic/Schematics/">schematic</a>. Each line is tagged:</p>
+<ul>
+<li><span class="tag asu">ASU Purchase</span> requested on a class order form</li>
+<li><span class="tag self">Self Purchase</span> bought by me</li>
+<li><span class="tag own">Already Owned</span> on hand from the course kit or bought earlier</li>
+</ul>
+<p>Order quantities cover a breadboard build, the PCB, and spares. 0805 parts only go on the PCB, so they come from the component book. C1 and C3 use the same 100 µF low-ESR capacitor, which meets the LM2940's output requirement (at least 22 µF, ESR 0.1 to 1 Ω). Prices are single-quantity, without shipping or tax.</p>
+<h2 id="cost-summary">Cost Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Purchase</th>
+<th>Supplier</th>
+<th>Order form</th>
+<th style="text-align: right;">Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASU Purchase</td>
+<td>DigiKey</td>
+<td><a href="../Purchase_Request_DigiKey_LKuhman.pdf">Purchase request (DigiKey)</a></td>
+<td style="text-align: right;">\$9.18</td>
+</tr>
+<tr>
+<td>ASU Purchase</td>
+<td>Amazon</td>
+<td><a href="../Purchase_Request_Amazon_LKuhman.pdf">Purchase request (Amazon)</a></td>
+<td style="text-align: right;">\$44.89</td>
+</tr>
+<tr>
+<td><strong>ASU total</strong></td>
+<td></td>
+<td></td>
+<td style="text-align: right;"><strong>\$54.07</strong> (budget \$60.00)</td>
+</tr>
+<tr>
+<td>Self Purchase</td>
+<td>Amazon</td>
+<td>—</td>
+<td style="text-align: right;">\$7.99</td>
+</tr>
+<tr>
+<td>Already Owned</td>
+<td>—</td>
+<td>—</td>
+<td style="text-align: right;">\$0.00</td>
+</tr>
+</tbody>
+</table>
+<p>The 0805 component book is pending approval from Professor Thangavelu. If it is not approved, the 0805 parts and SS14 are ordered individually from DigiKey instead (about \$7.50).</p>
 <h2 id="bill-of-materials-spreadsheet">Bill of Materials (Spreadsheet)</h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../BOM_LiDAR_LK.png" data-desc-position="bottom"><img alt="LiDAR subsystem bill of materials" src="../BOM_LiDAR_LK.png"></a></p>
-<p>Download the <a href="../BOM_LiDAR_LK.xlsx">Excel file</a>.</p>
+<p>Download the <a href="../BOM_LiDAR_LK.xlsx">Excel file</a> or the <a href="../LiDAR_Subsystem_LK_BOM.csv">KiCad BOM export (CSV)</a>.</p>
 <h2 id="component-bill-of-materials">Component Bill of Materials</h2>
 <div class="bom">
 <table>
@@ -1081,313 +1153,358 @@
 <tr>
 <th>Component</th>
 <th>Ref. Des.</th>
-<th style="text-align: right;">Qty</th>
+<th style="text-align: right;">Board Qty</th>
+<th style="text-align: right;">Order Qty</th>
+<th>Purchase</th>
+<th>Manufacturer #</th>
 <th style="text-align: right;">Unit Cost</th>
-<th style="text-align: right;">Total Cost</th>
-<th>Vendor</th>
-<th>Purchase Link</th>
+<th style="text-align: right;">Total</th>
+<th>Buy From</th>
 <th>Datasheet</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>PIC18F57Q43 Curiosity Nano (DM164150)</td>
-<td>U1</td>
+<td>0805 SMD component book, 5600 pcs (supplies the parts below)</td>
+<td>See below</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">\$10.95</td>
-<td style="text-align: right;">\$10.95</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705">View Product</a></td>
-<td><a href="https://www.microchip.com/en-us/development-tool/DM164150">View Datasheet</a></td>
+<td style="text-align: right;">1</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>0805 SMD Assortment</td>
+<td style="text-align: right;">\$36.90</td>
+<td style="text-align: right;">\$36.90</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">Amazon</a></td>
+<td>—</td>
 </tr>
 <tr>
-<td>Waveshare D500 360° LiDAR Kit</td>
-<td>J2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">\$50.00</td>
-<td style="text-align: right;">\$50.00</td>
-<td>Amazon</td>
-<td><a href="https://www.amazon.com/dp/B0GSTXW158">View Product</a></td>
-<td><a href="https://www.waveshare.com/wiki/D500_LiDAR_Kit">View Datasheet</a></td>
-</tr>
-<tr>
-<td>TI LM2940CT-5.0 5 V Regulator</td>
+<td>5 V 1 A LDO regulator, TO-220 (10-pack)</td>
 <td>U2</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">\$1.94</td>
-<td style="text-align: right;">\$1.94</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/detail/texas-instruments/LM2940CT-5-0-NOPB/32575">View Product</a></td>
-<td><a href="https://www.ti.com/lit/ds/symlink/lm2940-n.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>Aavid 507002B00000G TO-220 Heatsink</td>
-<td>U2</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">\$0.70</td>
-<td style="text-align: right;">\$0.70</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/detail/boyd-laconia-llc/507002B00000G/5846">View Product</a></td>
-<td><a href="https://info.boydcorp.com/hubfs/Thermal/Air-Cooling/Boyd-Board-Level-Heatsinks-Catalog.pdf">View Datasheet</a></td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>LM2940CT-5.0</td>
+<td style="text-align: right;">\$7.99</td>
+<td style="text-align: right;">\$7.99</td>
+<td><a href="https://www.amazon.com/dp/B08M31N764">Amazon</a></td>
+<td><a href="../datasheets/LM2940_TI.pdf">Datasheet</a></td>
 </tr>
 <tr>
-<td>CUI PJ-063AH Barrel Jack</td>
-<td>J1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">\$1.50</td>
-<td style="text-align: right;">\$1.50</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/detail/cui-devices/PJ-063AH/2161208">View Product</a></td>
-<td><a href="https://www.sameskydevices.com/product/resource/pj-063ah.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>Eaton GMC-750-R 750 mA Slow-Blow Fuse, 5 × 20 mm</td>
-<td>F1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">\$0.70</td>
-<td style="text-align: right;">\$0.70</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/detail/eaton-electronics-division/GMC-750-R/1877496">View Product</a></td>
-<td><a href="https://www.mouser.com/datasheet/2/87/eaton%20corporation_bus-elx-ds-4395-gmc-1160696.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>BLX-A Fuse Holder with Cover, 5 × 20 mm (already have, from kit)</td>
-<td>F1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>Have</td>
-<td><a href="https://www.taydaelectronics.com/fuse-holder-with-cover-5x20mm-blx-a-pcb-6-3a-250v.html">View Product</a></td>
-<td><a href="https://www.lcsc.com/product-detail/C3131.html">View Datasheet</a></td>
-</tr>
-<tr>
-<td>onsemi SS14 Schottky Diode</td>
-<td>D2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">\$0.50</td>
-<td style="text-align: right;">\$0.50</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/detail/onsemi/SS14/965474">View Product</a></td>
-<td><a href="https://www.onsemi.com/pdf/datasheet/ss14-d.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>JST B4B-PH-K-S 4-Pin Header</td>
-<td>J2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">\$0.20</td>
-<td style="text-align: right;">\$0.20</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=B4B-PH-K-S(LF)(SN)">View Product</a></td>
-<td><a href="https://www.jst-mfg.com/product/pdf/eng/ePH.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>Omron B3F-1000 Pushbutton</td>
-<td>SW1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">\$0.26</td>
-<td style="text-align: right;">\$0.26</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=B3F-1000">View Product</a></td>
-<td><a href="https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3f.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>Würth 61200821621 Box Header, 2 × 4 (already have, from kit)</td>
-<td>J3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>Have</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=61200821621">View Product</a></td>
-<td><a href="https://www.we-online.com/components/products/datasheet/61200821621.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>8-Wire Ribbon Cable with 2 × 4 IDC Connectors (already have, from kit)</td>
-<td>To J3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>Have</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=89108-0101">View Product</a></td>
-<td>Course kit part</td>
-</tr>
-<tr>
-<td>Würth 61301011121 Pin Header, 1 × 10 (already have, from kit)</td>
-<td>J4, J5</td>
+<td>Electrolytic capacitor, 100 µF 25 V, 6.3 mm radial, low ESR</td>
+<td>C1, C3</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>Have</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=61301011121">View Product</a></td>
-<td><a href="https://www.we-online.com/components/products/datasheet/61301011121.pdf">View Datasheet</a></td>
+<td style="text-align: right;">6</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>EEU-FC1E101SB</td>
+<td style="text-align: right;">\$0.46</td>
+<td style="text-align: right;">\$2.76</td>
+<td><a href="https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FC1E101SB/2689615">DigiKey</a></td>
+<td><a href="https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/EEUFC1E101S">Datasheet</a></td>
 </tr>
 <tr>
-<td>Würth 61300211121 Pin Header, 1 × 2 (already have, from kit)</td>
-<td>JP1–JP5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>Have</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=61300211121">View Product</a></td>
-<td><a href="https://www.we-online.com/components/products/datasheet/61300211121.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>Würth 60900213421 Jumper Shunt (already have, from kit)</td>
-<td>JP1–JP5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>Have</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=60900213421">View Product</a></td>
-<td><a href="https://www.we-online.com/components/products/datasheet/60900213421.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>Panasonic EEU-FR1E101 100 µF 25 V Capacitor</td>
-<td>C1</td>
+<td>TO-220 heatsink</td>
+<td>U2</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">\$0.40</td>
-<td style="text-align: right;">\$0.40</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=EEU-FR1E101">View Product</a></td>
-<td><a href="https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1209.pdf">View Datasheet</a></td>
+<td style="text-align: right;">3</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>507302B00000G</td>
+<td style="text-align: right;">\$0.34</td>
+<td style="text-align: right;">\$1.02</td>
+<td><a href="https://www.digikey.com/en/products/detail/boyd-laconia-llc/507302B00000G/5849">DigiKey</a></td>
+<td><a href="../datasheets/Boyd_BoardLevel_Heatsinks.pdf">Datasheet</a></td>
 </tr>
 <tr>
-<td>Panasonic EEU-FR1C220 22 µF 16 V Capacitor</td>
-<td>C3</td>
+<td>1 × 28 female header, 2.54 mm (Nano socket)</td>
+<td>U1 socket</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>PPTC281LFBN-RC</td>
+<td style="text-align: right;">\$1.35</td>
+<td style="text-align: right;">\$5.40</td>
+<td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC281LFBN-RC/810166">DigiKey</a></td>
+<td><a href="https://www.sullinscorp.com/product/pptc281lfbn-rc/">Datasheet</a></td>
+</tr>
+<tr>
+<td>Resistor 1 kΩ, 1%, 0805</td>
+<td>R1, R8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>1k 0805</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>Resistor 330 Ω, 1%, 0805</td>
+<td>R5, R6</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>330R 0805</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>Resistor 10 kΩ, 1%, 0805 (R3 not fitted)</td>
+<td>R4, R7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>10k 0805</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>Resistor 100 Ω, 1%, 0805</td>
+<td>R2</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">\$0.25</td>
-<td style="text-align: right;">\$0.25</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=EEU-FR1C220">View Product</a></td>
-<td><a href="https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1209.pdf">View Datasheet</a></td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>100R 0805</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf">Datasheet</a></td>
 </tr>
 <tr>
-<td>EGSCST 0805 SMD Component Book (5600 pcs)</td>
-<td>Parts below</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">\$36.90</td>
-<td style="text-align: right;">\$36.90</td>
-<td>Amazon</td>
-<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">View Product</a></td>
-<td>See rows below</td>
-</tr>
-<tr>
-<td>0805 Resistors: 1 kΩ, 330 Ω, 10 kΩ, 100 Ω</td>
-<td>R1, R2, R4–R8</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>In book</td>
-<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">View Product</a></td>
-<td><a href="https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf">View Datasheet</a></td>
-</tr>
-<tr>
-<td>0805 Capacitor, 10 µF</td>
-<td>C7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>In book</td>
-<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">View Product</a></td>
-<td><a href="https://product.samsungsem.com/mlcc/CL21A106KOQNNN.do">View Datasheet</a></td>
-</tr>
-<tr>
-<td>0805 Capacitor, 1 µF</td>
-<td>C9</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>In book</td>
-<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">View Product</a></td>
-<td><a href="https://product.samsungsem.com/mlcc/CL21B105KOFNNN.do">View Datasheet</a></td>
-</tr>
-<tr>
-<td>0805 Capacitor, 0.47 µF</td>
-<td>C2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">Included</td>
-<td style="text-align: right;">Included</td>
-<td>In book</td>
-<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">View Product</a></td>
-<td><a href="https://product.samsungsem.com/mlcc/CL21B474KBFNNN.do">View Datasheet</a></td>
-</tr>
-<tr>
-<td>0805 Capacitor, 0.1 µF</td>
+<td>Capacitor 100 nF, 50 V, X7R, 0805</td>
 <td>C4, C5, C6, C8</td>
 <td style="text-align: right;">4</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>104K 50V X7R</td>
 <td style="text-align: right;">Included</td>
 <td style="text-align: right;">Included</td>
-<td>In book</td>
-<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">View Product</a></td>
-<td><a href="https://product.samsungsem.com/mlcc/CL21B104KBCNNN.do">View Datasheet</a></td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://product.samsungsem.com/mlcc/CL21B104KBCNNN.do">Datasheet</a></td>
 </tr>
 <tr>
-<td>0805 LEDs, Green and Red</td>
-<td>D1, D3, D4</td>
-<td style="text-align: right;">3</td>
+<td>Capacitor 470 nF, 50 V, X7R, 0805</td>
+<td>C2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>474K 50V X7R</td>
 <td style="text-align: right;">Included</td>
 <td style="text-align: right;">Included</td>
-<td>In book</td>
-<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">View Product</a></td>
-<td><a href="https://www.we-online.com/components/products/datasheet/150080GS75000.pdf">View Datasheet</a></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Total estimated cost: \$104.30</strong></p>
-<h2 id="battery-pack">Battery Pack</h2>
-<div class="bom">
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th style="text-align: right;">Qty</th>
-<th style="text-align: right;">Unit Cost</th>
-<th style="text-align: right;">Total Cost</th>
-<th>Vendor</th>
-<th>Purchase Link</th>
-<th>Datasheet</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>POWOBEST 18650 Cell, 3000 mAh</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">—</td>
-<td style="text-align: right;">—</td>
-<td>Amazon</td>
-<td><a href="https://www.amazon.com/s?k=POWOBEST+3000mAh+18650+POWO18B">View Product</a></td>
-<td><a href="https://www.amazon.com/s?k=POWOBEST+3000mAh+18650+POWO18B">View Datasheet</a></td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://product.samsungsem.com/mlcc/CL21B474KBFNNN.do">Datasheet</a></td>
 </tr>
 <tr>
-<td>DIANN 18650 Battery Holder with Leads</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">—</td>
-<td style="text-align: right;">—</td>
-<td>Amazon</td>
-<td><a href="https://www.amazon.com/s?k=DIANN+18650+battery+holder+single">View Product</a></td>
-<td><a href="https://www.amazon.com/s?k=DIANN+18650+battery+holder+single">View Datasheet</a></td>
+<td>Capacitor 1 µF, 50 V, X7R, 0805</td>
+<td>C9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>105K 50V X7R</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://product.samsungsem.com/mlcc/CL21B105KOFNNN.do">Datasheet</a></td>
 </tr>
 <tr>
-<td>HiLetgo TP4056 USB-C Charger Module</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">—</td>
-<td style="text-align: right;">—</td>
-<td>Amazon</td>
-<td><a href="https://www.amazon.com/dp/B07PKND8KG">View Product</a></td>
-<td><a href="https://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/TP4056.pdf">View Datasheet</a></td>
+<td>Capacitor 10 µF, 25 V, X5R, 0805</td>
+<td>C7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>106K 25V X5R</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://product.samsungsem.com/mlcc/CL21A106KOQNNN.do">Datasheet</a></td>
 </tr>
 <tr>
-<td>CUI PP3-002A 2.1 mm DC Barrel Plug</td>
+<td>LED green, 0805</td>
+<td>D1, D4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>Green 0805</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://www.we-online.com/components/products/datasheet/150080GS75000.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>LED red, 0805</td>
+<td>D3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>Red 0805</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="https://www.we-online.com/components/products/datasheet/150080RS75000.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>Schottky diode SS14, 40 V 1 A, SMA</td>
+<td>D2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">In book</td>
+<td><span class="tag asu">ASU Purchase</span></td>
+<td>SS14</td>
+<td style="text-align: right;">Included</td>
+<td style="text-align: right;">Included</td>
+<td><a href="https://www.amazon.com/dp/B0DZXQPFHP">In book</a></td>
+<td><a href="../datasheets/SS14_Vishay.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>750 mA slow-blow fuse, 5 × 20 mm, 250 V (20-pack)</td>
+<td>F1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td><span class="tag self">Self Purchase</span></td>
+<td>T750mA 250V</td>
+<td style="text-align: right;">\$7.99</td>
+<td style="text-align: right;">\$7.99</td>
+<td><a href="https://www.amazon.com/dp/B0B58Z38YJ">Amazon</a></td>
+<td><a href="https://www.mouser.com/datasheet/2/87/eaton%20corporation_bus-elx-ds-4395-gmc-1160696.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>360° DTOF LiDAR kit with 4-pin cable</td>
+<td>Plugs into J2</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>D500 (STL-19P)</td>
 <td style="text-align: right;">—</td>
-<td>DigiKey</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=PP3-002A">View Product</a></td>
-<td><a href="https://www.sameskydevices.com/product/resource/pp3-002a.pdf">View Datasheet</a></td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.amazon.com/dp/B0GSTXW158">Amazon</a></td>
+<td><a href="https://www.waveshare.com/wiki/D500_LiDAR_Kit">Datasheet</a></td>
+</tr>
+<tr>
+<td>PIC18F57Q43 Curiosity Nano</td>
+<td>U1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>DM164150</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705">DigiKey</a></td>
+<td><a href="https://www.microchip.com/en-us/development-tool/DM164150">Datasheet</a></td>
+</tr>
+<tr>
+<td>DC barrel jack, 2.1 mm</td>
+<td>J1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>PJ-063AH</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.digikey.com/en/products/detail/cui-devices/PJ-063AH/2161208">DigiKey</a></td>
+<td><a href="../datasheets/PJ-063AH_CUI.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>Enclosed 5 × 20 mm PCB fuse holder</td>
+<td>F1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>BLX-A</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.lcsc.com/product-detail/C3131.html">Course kit</a></td>
+<td><a href="https://www.lcsc.com/product-detail/C3131.html">Datasheet</a></td>
+</tr>
+<tr>
+<td>JST PH 4-pin header, 2.0 mm (LiDAR)</td>
+<td>J2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>B4B-PH-K-S</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=B4B-PH-K-S(LF)(SN)">Course kit</a></td>
+<td><a href="https://www.jst-mfg.com/product/pdf/eng/ePH.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>2 × 4 IDC header, 2.54 mm (team ribbon)</td>
+<td>J3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>61200821621</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=61200821621">Course kit</a></td>
+<td><a href="https://www.we-online.com/components/products/datasheet/61200821621.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>8-wire ribbon cable with 2 × 4 IDC sockets</td>
+<td>To J3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td>Course kit</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Male pin header, 2.54 mm (cut to 1 × 10 and 1 × 2)</td>
+<td>J4, J5, JP1–JP5</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td>Course kit</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Jumper shunt, 2.54 mm</td>
+<td>JP1–JP5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td>Course kit</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tactile pushbutton, 6 mm</td>
+<td>SW1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>B3F-1000</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=B3F-1000">Course kit</a></td>
+<td><a href="../datasheets/B3F_Omron.pdf">Datasheet</a></td>
+</tr>
+<tr>
+<td>Test point pads (on the PCB, no part)</td>
+<td>TP1–TP8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td>PCB</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
 </div>
+<h2 id="datasheets">Datasheets</h2>
+<p>Datasheets for the main parts are saved in this repository in the <a href="https://github.com/lrkuhman/lrkuhman_RAS304_F26/tree/main/docs/03-BOM/datasheets">datasheets folder</a>. The rest link to the manufacturer.</p>
 
 
 
