@@ -3,8 +3,8 @@ C1,1,100µF 25V,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,ASU Purchase
 C2,1,0.47µF 50V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
 C3,1,100µF 25V,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,ASU Purchase
 "C4,C5,C6,C8",4,0.1µF 50V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
-C7,1,10µF 16V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
-C9,1,1µF 16V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
+C7,1,10µF 25V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
+C9,1,1µF 50V,Capacitor_SMD:C_0805_2012Metric,ASU Purchase
 "D1,D4",2,Green LED,LED_SMD:LED_0805_2012Metric,ASU Purchase
 D2,1,SS14,Diode_SMD:D_SMA,ASU Purchase
 D3,1,Red LED,LED_SMD:LED_0805_2012Metric,ASU Purchase
