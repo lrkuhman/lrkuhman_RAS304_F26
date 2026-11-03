@@ -4,7 +4,7 @@ title: Power Budget
 
 ## Overview
 
-This power budget checks that the +5 V regulator selected on the [Component Selection](../02-Component-Selection/Component-Selection.md) page can power everything on my **LiDAR subsystem** daughter board at the same time, with the required 25% safety margin. It follows the course power budget template; the filled-in spreadsheet is available under [Resources](#resources).
+This power budget checks that the +5 V regulator selected on the [Component Selection](../02-Component-Selection/Component-Selection.md) page can power everything on my **LiDAR subsystem** board at the same time, with the required 25% safety margin. It follows the course power budget template; the filled-in spreadsheet is available under [Resources](#resources).
 
 The LiDAR board has one power rail (+5 V), made by an LM2940CT-5.0 regulator from a 3S Li-ion battery pack on the robot, or from a 9 V DC adapter on the bench. The Curiosity Nano makes its own 3.3 V target voltage (VTG) from its VBUS pin with its on-board MIC5353 regulator, so no separate 3.3 V regulator is needed and the +12 V and +3.3 V sections of the template are unused.
 

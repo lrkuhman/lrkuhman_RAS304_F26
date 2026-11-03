@@ -38,7 +38,7 @@ The parts match my [Component Selection](../02-Component-Selection/Component-Sel
 ## Design Notes
 
 * **Custom symbols (initials LK):** the Curiosity Nano (U1), the D500 LiDAR connector (J2) and the voltage regulator (U2) are custom symbols in `LK_CustomParts.kicad_sym`. The Nano symbol groups its pins by port and puts the power pins on the top and bottom edges, which keeps the wiring clean.
-* **Ratings:** every resistor is 0805, 1/8 W, with at least 50% power margin (the worst case is 8 mW). Every capacitor's voltage rating is at least 25% above the rail it sits on: 25 V or 50 V on the 9–12 V rail, and 16 V or 50 V on the 5 V and 3.3 V rails.
+* **Ratings:** every resistor is 0805, 1/8 W, with at least 50% power margin (the worst case is 8 mW). Every capacitor's voltage rating is at least 25% above the rail it sits on: 25 V or 50 V on the 9–12 V rail, and 25 V or 50 V on the 5 V and 3.3 V rails.
 * **Logic levels:** the D500's UART runs at 3.3 V and the Nano's VTG is 3.3 V, so the LiDAR connects directly to the PIC with no level shifter.
 * **Analog sensor / actuator requirement:** per the instructor, this requirement applies to the whole system. It is met by the wheel subsystem (motor drivers and encoders) and the cliff-sensor subsystem, so the LiDAR board doesn't need its own.
 

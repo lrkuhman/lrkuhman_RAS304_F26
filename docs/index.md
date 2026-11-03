@@ -8,7 +8,7 @@ as part of<br>
 for<br>
 <font size= "5"> Team 1 (Group 101) </font><br>
 
-<em>Submission: October 30, 2026</em>
+<em>Last updated: November 2, 2026</em>
 </center>
 
 ## Introduction
@@ -21,7 +21,7 @@ OpenField is an open-source robot that sprays field lines, construction floor pl
 
 ### My Contribution
 
-I am responsible for the LiDAR subsystem: a daughter board with its own PIC18F57Q43 Curiosity Nano that reads a 360° time-of-flight LiDAR, reduces each scan to the obstacle and landmark data the robot needs to navigate, and sends it to the MASTER board over UART.
+I am responsible for the LiDAR subsystem: a standalone board with its own PIC18F57Q43 Curiosity Nano that reads a 360° time-of-flight LiDAR, reduces each scan to the obstacle and landmark data the robot needs to navigate, and sends it to the MASTER board over UART.
 
 ### Datasheet Pages
 

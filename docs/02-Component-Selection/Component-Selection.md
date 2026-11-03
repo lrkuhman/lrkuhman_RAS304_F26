@@ -4,7 +4,7 @@ title: Component Selection
 
 ## Overview
 
-This page compares candidate parts for every major block in my **LiDAR subsystem** of OpenField (Team 1, Group 101), the open-source line-marking robot. The LiDAR subsystem is a daughter board with its own PIC18F57Q43 Curiosity Nano. It reads a 360° ToF LiDAR, reduces the scan to the data the robot needs for navigation, and sends it to the MASTER board over UART (Connector 1, pins 1–2). See the [Individual Block Diagram](../01-Block-Diagram/Block-Diagram.md) for how the blocks connect.
+This page compares candidate parts for every major block in my **LiDAR subsystem** of OpenField (Team 1, Group 101), the open-source line-marking robot. The LiDAR subsystem is a standalone board with its own PIC18F57Q43 Curiosity Nano. It reads a 360° ToF LiDAR, reduces the scan to the data the robot needs for navigation, and sends it to the MASTER board over UART (Connector 1, pins 1–2). See the [Individual Block Diagram](../01-Block-Diagram/Block-Diagram.md) for how the blocks connect.
 
 The major components on this board are:
 
