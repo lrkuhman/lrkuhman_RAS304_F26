@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../static/logo304.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
             
 
     
@@ -1095,8 +1095,7 @@
 <p>Every part on my LiDAR subsystem board, from the <a href="../../04-Schematic/Schematics/">schematic</a>. Each line is tagged:</p>
 <ul>
 <li><span class="tag asu">ASU Purchase</span> requested on a class order form</li>
-<li><span class="tag self">Self Purchase</span> bought by me</li>
-<li><span class="tag own">Already Owned</span> on hand from the course kit or bought earlier</li>
+<li><span class="tag own">Already Owned</span> on hand from the course kit or class stock, or bought earlier</li>
 </ul>
 <p>Order quantities cover a breadboard build, the PCB, and spares. 0805 parts only go on the PCB, so they come from the component book. C1 and C3 use the same 100 µF low-ESR capacitor, which meets the LM2940's output requirement (at least 22 µF, ESR 0.1 to 1 Ω). Prices are single-quantity, without shipping or tax.</p>
 <h2 id="cost-summary">Cost Summary</h2>
@@ -1120,19 +1119,13 @@
 <td>ASU Purchase</td>
 <td>Amazon</td>
 <td><a href="../Purchase_Request_Amazon_LKuhman.pdf">Purchase request (Amazon)</a></td>
-<td style="text-align: right;">\$44.89</td>
+<td style="text-align: right;">\$36.90</td>
 </tr>
 <tr>
 <td><strong>ASU total</strong></td>
 <td></td>
 <td></td>
-<td style="text-align: right;"><strong>\$54.07</strong> (budget \$60.00)</td>
-</tr>
-<tr>
-<td>Self Purchase</td>
-<td>Amazon</td>
-<td>—</td>
-<td style="text-align: right;">\$7.99</td>
+<td style="text-align: right;"><strong>\$46.08</strong> (budget \$60.00)</td>
 </tr>
 <tr>
 <td>Already Owned</td>
@@ -1175,18 +1168,6 @@
 <td style="text-align: right;">\$36.90</td>
 <td><a href="https://www.amazon.com/dp/B0DZXQPFHP">Amazon</a></td>
 <td>—</td>
-</tr>
-<tr>
-<td>5 V 1 A LDO regulator, TO-220 (10-pack)</td>
-<td>U2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td><span class="tag asu">ASU Purchase</span></td>
-<td>LM2940CT-5.0</td>
-<td style="text-align: right;">\$7.99</td>
-<td style="text-align: right;">\$7.99</td>
-<td><a href="https://www.amazon.com/dp/B08M31N764">Amazon</a></td>
-<td><a href="../datasheets/LM2940_TI.pdf">Datasheet</a></td>
 </tr>
 <tr>
 <td>Electrolytic capacitor, 100 µF 25 V, 6.3 mm radial, low ESR</td>
@@ -1357,18 +1338,6 @@
 <td><a href="../datasheets/SS14_Vishay.pdf">Datasheet</a></td>
 </tr>
 <tr>
-<td>750 mA slow-blow fuse, 5 × 20 mm, 250 V (20-pack)</td>
-<td>F1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td><span class="tag self">Self Purchase</span></td>
-<td>T750mA 250V</td>
-<td style="text-align: right;">\$7.99</td>
-<td style="text-align: right;">\$7.99</td>
-<td><a href="https://www.amazon.com/dp/B0B58Z38YJ">Amazon</a></td>
-<td><a href="https://www.mouser.com/datasheet/2/87/eaton%20corporation_bus-elx-ds-4395-gmc-1160696.pdf">Datasheet</a></td>
-</tr>
-<tr>
 <td>360° DTOF LiDAR kit with 4-pin cable</td>
 <td>Plugs into J2</td>
 <td style="text-align: right;">1</td>
@@ -1405,6 +1374,18 @@
 <td><a href="../datasheets/PJ-063AH_CUI.pdf">Datasheet</a></td>
 </tr>
 <tr>
+<td>5 V 1 A LDO regulator, TO-220</td>
+<td>U2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>LM2940CT-5.0</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.amazon.com/dp/B08M31N764">Course kit</a></td>
+<td><a href="../datasheets/LM2940_TI.pdf">Datasheet</a></td>
+</tr>
+<tr>
 <td>Enclosed 5 × 20 mm PCB fuse holder</td>
 <td>F1</td>
 <td style="text-align: right;">1</td>
@@ -1415,6 +1396,18 @@
 <td style="text-align: right;">—</td>
 <td><a href="https://www.lcsc.com/product-detail/C3131.html">Course kit</a></td>
 <td><a href="https://www.lcsc.com/product-detail/C3131.html">Datasheet</a></td>
+</tr>
+<tr>
+<td>750 mA slow-blow fuse, 5 × 20 mm, 250 V</td>
+<td>F1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td><span class="tag own">Already Owned</span></td>
+<td>T750mA 250V</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td><a href="https://www.amazon.com/dp/B0B58Z38YJ">Course kit</a></td>
+<td><a href="https://www.mouser.com/datasheet/2/87/eaton%20corporation_bus-elx-ds-4395-gmc-1160696.pdf">Datasheet</a></td>
 </tr>
 <tr>
 <td>JST PH 4-pin header, 2.0 mm (LiDAR)</td>
@@ -1622,7 +1615,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
