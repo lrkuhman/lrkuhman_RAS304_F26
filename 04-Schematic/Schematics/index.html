@@ -1184,7 +1184,7 @@
 
 <h2 id="overview">Overview</h2>
 <p>This schematic is for my <strong>LiDAR subsystem</strong> board in OpenField (Team 1). The board uses a PIC18F57Q43 Curiosity Nano to read a Waveshare D500 360° time-of-flight LiDAR on UART1 at 230400 baud. It processes the scan and sends the results to the team's MASTER board over UART2, through the 8-pin team ribbon cable shown in the <a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/06-team-block-diagram/">team block diagram</a>.</p>
-<p>The parts match my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> and <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a> pages: a D500 LiDAR, an LM2940CT-5.0 linear regulator, and a 502.5 mA load on the +5 V rail (including the 25% safety margin).</p>
+<p>The parts match my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> and <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a> pages: a D500 LiDAR, an LM7805 linear regulator (provided by the class), and a 502.5 mA load on the +5 V rail (including the 25% safety margin).</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../LiDAR_Subsystem_LK_Schematic.png" data-desc-position="bottom"><img alt="LiDAR subsystem schematic" src="../LiDAR_Subsystem_LK_Schematic.png"></a>
 <strong>Figure 1:</strong> LiDAR subsystem schematic, drawn in KiCad. Click the image to enlarge it.</p>
 <h2 id="schematic-sections">Schematic Sections</h2>
@@ -1199,8 +1199,8 @@
 <tbody>
 <tr>
 <td><strong>Power input, protection &amp; 5 V regulation</strong></td>
-<td>Accepts the board's own supply through a barrel jack: a 3S Li-ion battery pack (9.0–12.6 V) on the robot, or a 9 V DC adapter on the bench. The input passes through a removable 750 mA slow-blow fuse in an enclosed BLX-A holder. The fuse is sized for a 420 mA input load plus the LiDAR motor's start-up current. The 5 V rail is made by a through-hole linear LDO with the input and output capacitors its datasheet requires. A green LED shows the board is powered. Per the course project description, each board makes its own 5 V; only ground is shared over the ribbon.</td>
-<td>J1 PJ-102A, F1 750 mA T in a BLX-A enclosed 5×20 mm holder, U2 LM2940CT-5.0 (TO-220, with heatsink), C1 100 µF/25 V, C2 0.47 µF/50 V, C3 100 µF/25 V, C4 0.1 µF, D1</td>
+<td>Accepts the board's own supply through a barrel jack: a 3S Li-ion battery pack (9.0–12.6 V) on the robot, or a 9 V DC adapter on the bench. The input passes through a removable 750 mA slow-blow fuse in an enclosed BLX-A holder. The fuse is sized for a 420 mA input load plus the LiDAR motor's start-up current. The 5 V rail is made by a through-hole LM7805 linear regulator, with input and output capacitors larger than its datasheet asks for. A green LED shows the board is powered. Per the course project description, each board makes its own 5 V; only ground is shared over the ribbon.</td>
+<td>J1 PJ-102A, F1 750 mA T in a BLX-A enclosed 5×20 mm holder, U2 LM7805 (TO-220, with heatsink), C1 100 µF/25 V, C2 0.47 µF/50 V, C3 100 µF/25 V, C4 0.1 µF, D1</td>
 </tr>
 <tr>
 <td><strong>Microcontroller</strong></td>

@@ -1326,7 +1326,7 @@
 <tbody>
 <tr>
 <td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://cdn-shop.adafruit.com/970x728/2164-00.jpg" data-desc-position="bottom"><img src="https://cdn-shop.adafruit.com/970x728/2164-00.jpg" alt="L7805CV" width="200"></a><br><strong>Option 1.</strong><br>STMicroelectronics L7805CV, 5 V 1.5 A linear regulator (TO-220)<br>\$0.75/each<br><a href="https://www.adafruit.com/product/2164">7805 at Adafruit</a><br><a href="https://cdn-shop.adafruit.com/product-files/2164/L7805CV.pdf">L7805CV datasheet</a></td>
-<td>* Inexpensive and in stock almost everywhere, including the lab<br>* 1.5 A rating gives three times the current we need<br>* Through-hole TO-220 package is easy to solder and bolt to a heatsink<br>* Low 6 mA quiescent current<br>* Internal current limit and thermal shutdown</td>
+<td>* Provided by the class, so it costs nothing, and it is in stock almost everywhere<br>* 1.5 A rating gives three times the current we need<br>* Through-hole TO-220 package is easy to solder and bolt to a heatsink<br>* Low 6 mA quiescent current<br>* Internal current limit and thermal shutdown</td>
 <td>* About 2 V dropout, so the input must stay above 7 V; it would not work if the team picks a 2S (7.4 V) pack<br>* No reverse-battery protection; a backwards battery plug can destroy the regulator and the LiDAR<br>* Like any linear regulator, it burns the extra voltage as heat (about 3.8 W at 12.6 V in), so it needs a heatsink</td>
 </tr>
 <tr>
@@ -1341,12 +1341,12 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 2: Texas Instruments LM2940CT-5.0/NOPB</p>
-<p><strong>Rationale:</strong> The course requires a linear regulator, and this one was chosen before the battery was final, so it had to cover any likely pack. The LM2940's 1 V maximum dropout lets the same board run from a 2S LiPo, a 3S LiPo, a 9.6 V NiMH pack or a 12 V lead-acid battery, while the 7805 needs at least 7 V and rules out 2S packs. Its built-in reverse-battery protection matters on a robot whose battery is plugged and unplugged every session, since one backwards plug could destroy the LiDAR. Its 1 A rating covers the 502.5 mA budget with 497.5 mA left over. The custom transistor regulator was rejected because it cannot hold 5 V within the Curiosity Nano's VBUS limits and has no protection.</p>
-<p><strong>Thermal check:</strong> With a fully charged 3S pack (12.6 V) and the budgeted 502.5 mA load, the regulator dissipates about (12.6 V − 5 V) × 0.5025 A + 12.6 V × 0.015 A ≈ 4.0 W. To keep the junction below 125 °C at a 45 °C ambient (a robot running outside in Arizona), the total junction-to-air resistance must be under about 20 °C/W. A bare TO-220 is far above that, so the regulator gets a bolt-on TO-220 heatsink rated at about 15 °C/W or better, with thermal compound. If the team chooses a 2S pack, dissipation drops to about 1.8 W.</p>
+<p><strong>Choice:</strong> Option 1: 7805 5 V linear regulator (LM7805, provided by the class)</p>
+<p><strong>Rationale:</strong> The course requires a linear regulator, and the class provides LM7805s, so this one costs nothing. I first picked the LM2940 because the battery wasn't chosen yet and its low dropout would cover a 2S pack. Now that the team uses a 3S pack (9.0–12.6 V), the 7805's 7 V minimum input is never a problem, and the 9 V bench adapter works too. Its 1.5 A rating covers the 502.5 mA budget easily; the power budget still uses a conservative 1 A, which leaves 497.5 mA. The 7805 has no reverse-battery protection, but the barrel plug on J1 only fits one way. It also has the same TO-220 pinout as the LM2940 (input, ground, output), so the PCB did not change. The custom transistor regulator was rejected because it cannot hold 5 V within the Curiosity Nano's VBUS limits and has no protection.</p>
+<p><strong>Thermal check:</strong> With a fully charged 3S pack (12.6 V) and the budgeted 502.5 mA load, the regulator dissipates about (12.6 V − 5 V) × 0.5025 A + 12.6 V × 0.006 A ≈ 3.9 W. To keep the junction below 125 °C at a 45 °C ambient (a robot running outside in Arizona), the total junction-to-air resistance must be under about 20 °C/W. A bare TO-220 is far above that, so the regulator gets a bolt-on TO-220 heatsink rated at about 15 °C/W or better, with thermal compound. From the 9 V bench adapter, it drops to about 2.1 W.</p>
 <hr>
 <h2 id="3-lidar-subsystem-power-source">3. LiDAR Subsystem – Power Source</h2>
-<p>The power source plugs into J1. It must stay above the LM2940's 6 V minimum and last at least 4 hours at 502.5 mA.</p>
+<p>The power source plugs into J1. It must stay above the 7805's 7 V minimum input and last at least 4 hours at 502.5 mA.</p>
 <table>
 <thead>
 <tr>
@@ -1363,7 +1363,7 @@
 </tr>
 <tr>
 <td><strong>Option 2.</strong><br>3S Li-ion pack: three POWOBEST 3000 mAh 18650 cells in single-cell holders, wired in series, charged with HiLetgo TP4056 USB-C modules</td>
-<td>* 9.0 to 12.6 V over the whole discharge, always above the LM2940's 6 V minimum<br>* 3000 mAh gives about 6.0 hours at 502.5 mA, well over the 4-hour requirement<br>* Light and compact for a mobile robot<br>* Cells are cheap, common, and replaceable one at a time<br>* Charges from any USB-C supply with low-cost TP4056 modules</td>
+<td>* 9.0 to 12.6 V over the whole discharge, always above the 7805's 7 V minimum<br>* 3000 mAh gives about 6.0 hours at 502.5 mA, well over the 4-hour requirement<br>* Light and compact for a mobile robot<br>* Cells are cheap, common, and replaceable one at a time<br>* Charges from any USB-C supply with low-cost TP4056 modules</td>
 <td>* Most regulator heat at full charge (about 3.8 W), so the heatsink is required<br>* Cells must be removed from the series holders to charge them one at a time<br>* Lithium-ion cells need care: no crushing, over-charging, or over-discharging</td>
 </tr>
 <tr>
@@ -1395,9 +1395,9 @@
 </tr>
 <tr>
 <td><strong>LiDAR Subsystem – +5 V regulator</strong></td>
-<td>TI LM2940CT-5.0/NOPB + TO-220 heatsink</td>
-<td>\$1.94</td>
-<td><a href="https://www.digikey.com/en/products/detail/texas-instruments/LM2940CT-5-0-NOPB/32575">DigiKey</a></td>
+<td>LM7805 + TO-220 heatsink</td>
+<td>Provided by the class</td>
+<td>Class stock</td>
 </tr>
 <tr>
 <td><strong>LiDAR Subsystem – Power source</strong></td>
@@ -1495,7 +1495,7 @@
 <td>VBUS</td>
 <td>Power in</td>
 <td>—</td>
-<td>LM2940 output, through D2 and JP1</td>
+<td>LM7805 output, through D2 and JP1</td>
 </tr>
 <tr>
 <td>Ground</td>

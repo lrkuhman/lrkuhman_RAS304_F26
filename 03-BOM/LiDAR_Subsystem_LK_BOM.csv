@@ -22,4 +22,4 @@ R3,1,10k DNP,Resistor_SMD:R_0805_2012Metric,Not fitted
 SW1,1,B3F-1000,Button_Switch_THT:SW_PUSH_6mm,Already Owned
 TP1-TP8,8,TestPoint,TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm,PCB pad
 U1,1,PIC18F57Q43 Curiosity Nano,Footprints_LK:NANO_Footprint_LK,Already Owned
-U2,1,LM2940CT-5.0,Package_TO_SOT_THT:TO-220-3_Vertical,Already Owned
+U2,1,LM7805,Package_TO_SOT_THT:TO-220-3_Vertical,Already Owned

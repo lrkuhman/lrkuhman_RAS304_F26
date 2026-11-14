@@ -1228,7 +1228,7 @@
 
 <h2 id="overview">Overview</h2>
 <p>This power budget checks that the +5 V regulator selected on the <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> page can power everything on my <strong>LiDAR subsystem</strong> board at the same time, with the required 25% safety margin. It follows the course power budget template; the filled-in spreadsheet is available under <a href="#resources">Resources</a>.</p>
-<p>The LiDAR board has one power rail (+5 V), made by an LM2940CT-5.0 regulator from a 3S Li-ion battery pack on the robot, or from a 9 V DC adapter on the bench. The Curiosity Nano makes its own 3.3 V target voltage (VTG) from its VBUS pin with its on-board MIC5353 regulator, so no separate 3.3 V regulator is needed and the +12 V and +3.3 V sections of the template are unused.</p>
+<p>The LiDAR board has one power rail (+5 V), made by an LM7805 regulator (provided by the class) from a 3S Li-ion battery pack on the robot, or from a 9 V DC adapter on the bench. The Curiosity Nano makes its own 3.3 V target voltage (VTG) from its VBUS pin with its on-board MIC5353 regulator, so no separate 3.3 V regulator is needed and the +12 V and +3.3 V sections of the template are unused.</p>
 <h2 id="a-major-components">A. Major Components</h2>
 <table>
 <thead>
@@ -1339,9 +1339,9 @@
 </thead>
 <tbody>
 <tr>
-<td>+5 V low-dropout linear regulator</td>
-<td>TI LM2940CT-5.0/NOPB</td>
-<td>+6 to +26 V</td>
+<td>+5 V linear regulator</td>
+<td>LM7805</td>
+<td>+7 to +35 V</td>
 <td>1</td>
 <td>1000</td>
 <td>1000</td>
@@ -1357,6 +1357,7 @@
 </tbody>
 </table>
 <p>The regulator selection table and rationale are on the <a href="../../02-Component-Selection/Component-Selection/#2-lidar-subsystem-5-v-voltage-regulator">Component Selection</a> page.</p>
+<p>The LM7805 is rated for 1.5 A; the budget uses 1 A to stay conservative.</p>
 <p><strong>Regulator heat:</strong> (V<sub>in</sub> − 5 V) × 0.5025 A ≈ 2.0 W at 9 V and 3.8 W at 12.6 V, so U2 gets a TO-220 heatsink.</p>
 <h2 id="d-external-power-sources">D. External Power Sources</h2>
 <table>
@@ -1380,7 +1381,7 @@
 <td>3000</td>
 </tr>
 <tr>
-<td><strong>Rail connected:</strong> +5 V rail, through the LM2940CT-5.0</td>
+<td><strong>Rail connected:</strong> +5 V rail, through the LM7805</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1404,7 +1405,7 @@
 <td>1000</td>
 </tr>
 <tr>
-<td><strong>Rail connected:</strong> +5 V rail, through the LM2940CT-5.0</td>
+<td><strong>Rail connected:</strong> +5 V rail, through the LM7805</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1448,7 +1449,7 @@
 <p>3000 mAh ÷ 502.5 mA ≈ <strong>6.0 hours</strong>, which meets the team's 4-hour runtime requirement (<a href="https://ras4-f26-2028-team-1.github.io/RAS304-F26-team1.github.io/product-requirements/">PR-2</a>).</p>
 <h2 id="conclusions">Conclusions</h2>
 <ul>
-<li>The board needs <strong>502.5 mA</strong> on +5 V with the 25% margin. The LM2940CT-5.0 supplies 1000 mA, leaving <strong>497.5 mA</strong> of headroom for the LiDAR's start-up surge.</li>
+<li>The board needs <strong>502.5 mA</strong> on +5 V with the 25% margin. The LM7805 is budgeted at 1000 mA, leaving <strong>497.5 mA</strong> of headroom for the LiDAR's start-up surge.</li>
 <li>The regulator dissipates 2.0 W to 3.8 W, so it needs a TO-220 heatsink.</li>
 <li>The 3S pack runs the board for about <strong>6 hours</strong>.</li>
 <li>On the bench, the D500 drew <strong>247 mA</strong>, below the 290 mA used here, so the budget is conservative.</li>
