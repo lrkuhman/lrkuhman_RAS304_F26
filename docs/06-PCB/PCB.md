@@ -4,7 +4,7 @@ title: PCB
 
 ## Overview
 
-This is the printed circuit board (PCB) for my **LiDAR subsystem**, laid out in KiCad from the [schematic](../04-Schematic/Schematics.md) (rev 1.2). It is a two-layer board milled in the lab. Every part on it is listed in the [BOM](../03-BOM/BOM.md).
+This is the printed circuit board (PCB) for my **LiDAR subsystem**, laid out in KiCad from the [schematic](../04-Schematic/Schematics.md) (rev 1.3). It is a two-layer board milled in the lab. Every part on it is listed in the [BOM](../03-BOM/BOM.md).
 
 ![3D view of the LiDAR board](PCB_3D_LK.png)
 **Figure 1:** 3D view of the LiDAR board from KiCad. The fuse holder and the regulator's heatsink have no 3D models, so they don't show in the render. Click any image to enlarge it.
@@ -33,7 +33,7 @@ This is the printed circuit board (PCB) for my **LiDAR subsystem**, laid out in 
 
 | Area | Where it is | Notes |
 | --- | --- | --- |
-| **Power input and 5 V regulator** | Top right | The fuse F1 runs along the top edge and the barrel jack J1 is on the right edge. The regulator U2 sits between them and the rest of the board, with C1 (input) and C3 (output) right next to its pins. C1 and C3 are the same 100 µF 25 V part. |
+| **Power input and 5 V regulator** | Top right | The fuse F1 runs along the top edge and the barrel jack J1 is on the right edge. The regulator U2 (LM7805) sits between them and the rest of the board, with C1 (input) and C3 (output) right next to its pins. C1 and C3 are the same 100 µF 25 V part. |
 | **Curiosity Nano** | Left middle | The Nano (U1) plugs into two 28-pin female headers so it can be removed. The spare pins go out to headers J4 and J5 on the left edge. |
 | **LiDAR connector** | Right side | J2 is the JST connector for the D500. Its capacitors C7 and C8 are right at the connector. |
 | **Team ribbon cable** | Bottom right | J3 is the 2×4 header for the ribbon to the MASTER board. Jumpers JP4 and JP5 can disconnect the UART lines for debugging. |

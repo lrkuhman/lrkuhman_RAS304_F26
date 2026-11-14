@@ -12,7 +12,7 @@ Every part on my LiDAR subsystem board, from the [schematic](../04-Schematic/Sch
 * <span class="tag asu">ASU Purchase</span> requested on a class order form
 * <span class="tag own">Already Owned</span> on hand from the course kit or class stock, or bought earlier
 
-Order quantities cover a breadboard build, the PCB, and spares. 0805 parts only go on the PCB, so they come from the component book. C1 and C3 use the same 100 µF low-ESR capacitor, which meets the LM2940's output requirement (at least 22 µF, ESR 0.1 to 1 Ω). Prices are single-quantity, without shipping or tax.
+Order quantities cover a breadboard build, the PCB, and spares. 0805 parts only go on the PCB, so they come from the component book. C1 and C3 use the same 100 µF capacitor, well above the 7805 datasheet's 0.33 µF input and 0.1 µF output. Prices are single-quantity, without shipping or tax.
 
 ## Cost Summary
 
@@ -55,7 +55,7 @@ Download the [Excel file](BOM_LiDAR_LK.xlsx) or the [KiCad BOM export (CSV)](LiD
 | 360° DTOF LiDAR kit with 4-pin cable | Plugs into J2 | 1 | — | <span class="tag own">Already Owned</span> | D500 (STL-19P) | — | — | [Amazon](https://www.amazon.com/dp/B0GSTXW158) | [Datasheet](https://www.waveshare.com/wiki/D500_LiDAR_Kit) |
 | PIC18F57Q43 Curiosity Nano | U1 | 1 | — | <span class="tag own">Already Owned</span> | DM164150 | — | — | [DigiKey](https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705) | [Datasheet](https://www.microchip.com/en-us/development-tool/DM164150) |
 | DC barrel jack, 2.1 mm plug, PJ-102A style | J1 | 1 | — | <span class="tag own">Already Owned</span> | PJ-102A | — | — | [DigiKey](https://www.digikey.com/en/products/result?keywords=PJ-102A) | [Datasheet](datasheets/PJ-102A_CUI.pdf) |
-| 5 V 1 A LDO regulator, TO-220 | U2 | 1 | — | <span class="tag own">Already Owned</span> | LM2940CT-5.0 | — | — | [Course kit](https://www.amazon.com/dp/B08M31N764) | [Datasheet](datasheets/LM2940_TI.pdf) |
+| 5 V 1.5 A linear regulator, TO-220 | U2 | 1 | — | <span class="tag own">Already Owned</span> | LM7805 | — | — | Class provided | [Datasheet](datasheets/L7805_ST.pdf) |
 | Enclosed 5 × 20 mm PCB fuse holder | F1 | 1 | — | <span class="tag own">Already Owned</span> | BLX-A | — | — | [Course kit](https://www.lcsc.com/product-detail/C3131.html) | [Datasheet](https://www.lcsc.com/product-detail/C3131.html) |
 | 750 mA slow-blow fuse, 5 × 20 mm, 250 V | F1 | 1 | — | <span class="tag own">Already Owned</span> | T750mA 250V | — | — | [Course kit](https://www.amazon.com/dp/B0B58Z38YJ) | [Datasheet](https://www.mouser.com/datasheet/2/87/eaton%20corporation_bus-elx-ds-4395-gmc-1160696.pdf) |
 | JST PH 4-pin header, 2.0 mm (LiDAR) | J2 | 1 | — | <span class="tag own">Already Owned</span> | B4B-PH-K-S | — | — | [Course kit](https://www.digikey.com/en/products/result?keywords=B4B-PH-K-S(LF)(SN)) | [Datasheet](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf) |
