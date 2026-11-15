@@ -27,7 +27,7 @@
 
     
       
-        <title>PCB - RAS 304 Landon Kuhman Data Sheet</title>
+        <title>PCB Design - RAS 304 Landon Kuhman Data Sheet</title>
       
     
     
@@ -206,7 +206,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PCB
+              PCB Design
             
           </span>
         </div>
@@ -892,7 +892,7 @@
   <span class="md-ellipsis">
     
   
-    PCB
+    PCB Design
   
 
     
@@ -910,7 +910,7 @@
   <span class="md-ellipsis">
     
   
-    PCB
+    PCB Design
   
 
     
@@ -1178,10 +1178,10 @@
   
 
 
-  <h1>PCB</h1>
+  <h1>PCB Design</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This is the printed circuit board (PCB) for my <strong>LiDAR subsystem</strong>, laid out in KiCad from the <a href="../../04-Schematic/Schematics/">schematic</a> (rev 1.3). It is a two-layer board milled in the lab. Every part on it is listed in the <a href="../../03-BOM/BOM/">BOM</a>.</p>
+<p>This is the printed circuit board (PCB) for my <strong>LiDAR subsystem</strong>, laid out in KiCad from the <a href="../../04-Schematic/Schematics/">schematic</a> (rev 1.3). It is a two-layer board with solder mask and silkscreen, made by JLCPCB. Every part on it is listed in the <a href="../../03-BOM/BOM/">BOM</a>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../PCB_3D_LK.png" data-desc-position="bottom"><img alt="3D view of the LiDAR board" src="../PCB_3D_LK.png"></a>
 <strong>Figure 1:</strong> 3D view of the LiDAR board from KiCad. The fuse holder and the regulator's heatsink have no 3D models, so they don't show in the render. Click any image to enlarge it.</p>
 <table>
@@ -1282,7 +1282,7 @@
 <li><strong>Lesson from the breadboard test:</strong> when the LiDAR's 5 V went through thin breadboard wiring, its motor start-up dropped the voltage and the LiDAR kept restarting. On the PCB, all power traces are 1.02 mm wide and C7/C8 sit at the J2 connector.</li>
 <li><strong>Regulator heatsink:</strong> U2 is turned so its tab faces away from the capacitors and barrel jack, which leaves room for the Boyd 5073 heatsink. The heatsink outline is drawn on the board's fabrication layer. The regulator gives off about 2.7 W at the load I measured on the bench. At the full budgeted load from a fully charged pack (3.8 W), it runs near its temperature limit, so the heatsink is required.</li>
 <li><strong>Ground pour:</strong> both layers are filled with ground, so every ground pin has a short path back to the supply and less copper has to be milled away.</li>
-<li><strong>Labels:</strong> every part has its reference designator, and the board has my initials (LK) on the top and bottom.</li>
+<li><strong>Labels:</strong> "LK TEAM 101" is printed in large bold text on the top silkscreen, inside the Nano's outline, so the bare board can be identified. Every part has its reference designator, and the copper layers are labeled "top" and "bottom".</li>
 </ul>
 <h2 id="assembly-notes">Assembly Notes</h2>
 <ol>
@@ -1294,6 +1294,7 @@
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="../PCB_Layout_LK.pdf">Layout PDF</a>: top copper, bottom copper and top silkscreen, printed at 1:1 scale.</li>
+<li><a href="../Kuhman_Landon_Team101.zip">Gerber ZIP</a>: the Gerber and drill files sent to JLCPCB (top and bottom copper, solder mask, silkscreen, board outline and drill).</li>
 <li><a href="../DRC_report.txt">DRC report</a>: 0 violations and 0 unconnected pads. The 3 warnings are the mounting holes, which are only on the PCB and not in the schematic.</li>
 <li><a href="../LiDAR_Subsystem_LK_PCB.zip">KiCad project ZIP</a>: the board, schematic, custom symbols and footprints, Gerber files, drill file and the mill files.</li>
 </ul>
