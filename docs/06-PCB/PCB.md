@@ -1,10 +1,10 @@
 ---
-title: PCB
+title: PCB Design
 ---
 
 ## Overview
 
-This is the printed circuit board (PCB) for my **LiDAR subsystem**, laid out in KiCad from the [schematic](../04-Schematic/Schematics.md) (rev 1.3). It is a two-layer board milled in the lab. Every part on it is listed in the [BOM](../03-BOM/BOM.md).
+This is the printed circuit board (PCB) for my **LiDAR subsystem**, laid out in KiCad from the [schematic](../04-Schematic/Schematics.md) (rev 1.3). It is a two-layer board with solder mask and silkscreen, made by JLCPCB. Every part on it is listed in the [BOM](../03-BOM/BOM.md).
 
 ![3D view of the LiDAR board](PCB_3D_LK.png)
 **Figure 1:** 3D view of the LiDAR board from KiCad. The fuse holder and the regulator's heatsink have no 3D models, so they don't show in the render. Click any image to enlarge it.
@@ -45,7 +45,7 @@ This is the printed circuit board (PCB) for my **LiDAR subsystem**, laid out in 
 * **Lesson from the breadboard test:** when the LiDAR's 5 V went through thin breadboard wiring, its motor start-up dropped the voltage and the LiDAR kept restarting. On the PCB, all power traces are 1.02 mm wide and C7/C8 sit at the J2 connector.
 * **Regulator heatsink:** U2 is turned so its tab faces away from the capacitors and barrel jack, which leaves room for the Boyd 5073 heatsink. The heatsink outline is drawn on the board's fabrication layer. The regulator gives off about 2.7 W at the load I measured on the bench. At the full budgeted load from a fully charged pack (3.8 W), it runs near its temperature limit, so the heatsink is required.
 * **Ground pour:** both layers are filled with ground, so every ground pin has a short path back to the supply and less copper has to be milled away.
-* **Labels:** every part has its reference designator, and the board has my initials (LK) on the top and bottom.
+* **Labels:** "LK TEAM 101" is printed in large bold text on the top silkscreen, inside the Nano's outline, so the bare board can be identified. Every part has its reference designator, and the copper layers are labeled "top" and "bottom".
 
 ## Assembly Notes
 
@@ -57,5 +57,6 @@ This is the printed circuit board (PCB) for my **LiDAR subsystem**, laid out in 
 ## Resources
 
 * [Layout PDF](PCB_Layout_LK.pdf): top copper, bottom copper and top silkscreen, printed at 1:1 scale.
+* [Gerber ZIP](Kuhman_Landon_Team101.zip): the Gerber and drill files sent to JLCPCB (top and bottom copper, solder mask, silkscreen, board outline and drill).
 * [DRC report](DRC_report.txt): 0 violations and 0 unconnected pads. The 3 warnings are the mounting holes, which are only on the PCB and not in the schematic.
 * [KiCad project ZIP](LiDAR_Subsystem_LK_PCB.zip): the board, schematic, custom symbols and footprints, Gerber files, drill file and the mill files.

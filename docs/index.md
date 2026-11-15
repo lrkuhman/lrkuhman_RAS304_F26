@@ -8,7 +8,7 @@ as part of<br>
 for<br>
 <font size= "5"> Team 1 (Group 101) </font><br>
 
-<em>Last updated: November 14, 2026</em>
+<em>Last updated: November 15, 2026</em>
 </center>
 
 ## Introduction
@@ -30,4 +30,4 @@ I am responsible for the LiDAR subsystem: a standalone board with its own PIC18F
 * [BOM](03-BOM/BOM.md): every part on the board, with reference designators
 * [Schematics](04-Schematic/Schematics.md): LiDAR board schematic (KiCad), PDF and project ZIP
 * [Power Budget](05-Power-Budget/Power-Budget.md): +5 V rail current, regulator headroom, power sources, and battery life
-* [PCB](06-PCB/PCB.md): two-layer board layout, 3D view, design notes, and Gerber/mill files
+* [PCB Design](06-PCB/PCB.md): two-layer board layout, 3D view, design notes, KiCad project and Gerber files

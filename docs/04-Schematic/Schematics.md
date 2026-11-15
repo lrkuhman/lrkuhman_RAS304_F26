@@ -76,4 +76,4 @@ The test firmware ([main.c](test-code/main.c), stage 6) and the point-cloud view
 ## Resources
 
 * The schematic as a high-resolution PDF is available [*here*](LiDAR_Subsystem_LK_Schematic.pdf).
-* A ZIP of the full KiCad project, including the custom symbol and footprint libraries, is available [*here*](LiDAR_Subsystem_LK.zip).
+* The current KiCad project (schematic, PCB, and custom symbol and footprint libraries) is on the [PCB Design](../06-PCB/PCB.md) page.
