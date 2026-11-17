@@ -1,5 +1,5 @@
 ** Drc report for LiDAR_Subsystem_LK.kicad_pcb **
-** Created on 2026-11-15T17:10:05-0700 **
+** Created on 2026-11-17T09:35:32-0700 **
 
 ** Found 0 DRC violations **
 
@@ -8,10 +8,10 @@
 ** Found 3 Footprint errors **
 [extra_footprint]: Extra footprint
     Local override; warning
-    @(119.5000 mm, 132.5000 mm): Footprint H2
+    @(119.5000 mm, 132.0000 mm): Footprint H2
 [extra_footprint]: Extra footprint
     Local override; warning
-    @(52.6000 mm, 131.6000 mm): Footprint H1
+    @(52.5000 mm, 132.0000 mm): Footprint H1
 [extra_footprint]: Extra footprint
     Local override; warning
     @(111.0000 mm, 118.6000 mm): Footprint H3
